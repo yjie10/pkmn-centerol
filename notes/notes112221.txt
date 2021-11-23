@@ -27,3 +27,4 @@ const HomePage = () => (
 
 Styling: 
 - will be using SASS
+  ~ my dumbass wrapped every menu item in its own directory-menu and everything became block and I couldn't figure out why for so long ...

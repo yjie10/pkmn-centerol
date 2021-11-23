@@ -1,0 +1,29 @@
+// notes for self-use
+
+
+Project Design:
+- final product home page: 6 categories: Plush, Figures & Pins, Game, Apparel, Accessories, Stationaries
+- same component for each category, which has a outside and inside container; the inside container contains the title and sub-title
+- have a directory component to display the category items on the home page
+
+Building:
+- first component built is the homepage.component.jsx
+- directory-menu, menu-item etc. will be moved into their own component later on
+- functional component because we don't really need any _lifecycle methods_ at this time nor do we need to store any _state_
+
+Code#1:
+const HomePage = () => (
+  <div className="homepage">
+    <div className="directory-menu">
+      <div className="menu-item">
+        <div className="content">
+          <h1 className="title">PLUSH</h1>
+          <span className="subtitle">SHOP NOW</span>
+        </div>
+      </div>
+    </div>
+  </div>
+) -> x6 for each other category
+
+Styling: 
+- will be using SASS

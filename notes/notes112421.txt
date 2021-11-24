@@ -1,0 +1,12 @@
+// notes for self-use 11.24.21
+// 1. Styling menu-item (cont. )
+
+Styling: 
+- hover effect should go on the menu-item (for background-image & content)
+- using scaling (transform) and cubic-bezier (transition) for transforming: allows a smoother transition, link included below
+- because of scaling, the background-image will be growing outside of container, this is an _overflow_
+- to avoid the overflow problem, we add overflow: hidden to menu-item
+
+
+Links:
+1. (cubic bezier)[https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function]

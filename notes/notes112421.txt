@@ -58,6 +58,45 @@ Notes:
 
 
 Example#1: 
+// App and 3 functional component (pages)
+
+// any components that gets rendered by Route has three properties
+
+/* if we console.log the props, it would be:
+    1. history: see example#2
+    2. location: tells us where we are currently, we focus on pathname for now; 
+      I. pathname: gives us the full pathname we entered
+    3. match:
+      I. url - the url of the component it got rendered from the route; without the exact keyword, and if we were to render home ('/') and some other component (e.g. /topic), the url would return '/' only
+      II. path - the path we entered that got rendered
+      III. isExact - only true if the entire url is matching the pattern
+      IV: parameter - object of url parameters; :topicId is a url parameter, it will match up to '/topics/' and anything afterward can be a dynamically changing value; we want to access the topicId value as a parameter
+        · this is important because if we want to display the topicId, we do have access to this topic value
+*/
+
+const HomePage = (props) => {
+  return (
+    <div>
+      <h1>HOME PAGE</h1>
+    </div>
+  );
+};
+
+const TopicsList = () => {
+  return (
+    <div>
+      <h1>TOPIC LIST PAGE</h1>
+    </div>
+  );
+};
+
+const TopicDetail = (props) {
+  return (
+    <div>
+      <h1>TOPIC DETAIL PAGE: { props.match.params.topicId }</h1>
+    </div>
+  );
+};
 
 function App() {
   return (
@@ -66,6 +105,22 @@ function App() {
       <Route exact path='/topics' componenet={TopicsList} />
       <Route path='/topics/:topicId' componenet={TopicDetail} />
     </div>
-  )
-}
+  );
+};
+
+Example#2: 
+/*
+  history: in push, we push the string of the path we want to go
+    - kind of like using a Link, but gives us more of a dynamic access
+    - say if we want to navigate in componentDidMount(), we cannot render a link as it's just a method, but we can use history.push
+*/
+
+const HomePage = (props) => {
+  return (
+    <div>
+      <button onClick={() => props.history.push('/topics')}>Topics</button>
+      <h1>HOME PAGE</h1>
+    </div>
+  );
+};
 

@@ -1,5 +1,8 @@
 // notes for self-use 11.24.21
-// 1. Styling menu-item (cont. )
+/* 
+  1. Styling menu-item (cont. )
+  2. Adding React Router
+*/
 
 Styling: 
 - hover effect should go on the menu-item (for background-image & content)
@@ -7,6 +10,62 @@ Styling:
 - because of scaling, the background-image will be growing outside of container, this is an _overflow_
 - to avoid the overflow problem, we add overflow: hidden to menu-item
 
+Building:
+- using react-router-dom5.0.0
+- first go to index.js and import BrowserRouter, which is a component we wrap around our app, it gives our application all function of what routing library provides
+
+Code#1:
+
+// quick component to see how react-router works
+
+const PlushPage = () => (
+  <div>
+    <h1>PLUSH PAGE</h1>
+  </div>
+)
+
+// without the exact keyword, if we enter '/plush', home page will be rendered as well because '/' matches
+function App() {
+  return (
+    <div>
+      <Route exact path='/' component={HomePage} />
+      <Route path='/plush' component={PlushPage} />
+    </div>
+  );
+}
+
+- the other component we use is the Switch component
+- to use it, we wrap our route components within it
+- with just Route, it will render anything that matches path if without exact keyword
+- but with Switch, the moment a Route inside Switch finds a match in the path, it will render only one route
+- renders the first Route it finds a match
+- Switch gives us more control over our code, useful as it avoids mutiple components to be (accidentally) rendered on the same page
 
 Links:
 1. (cubic bezier)[https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function]
+
+---
+
+Notes:
+1. Routing in a single page application
+
+- react is an UI library which doesn't come with routing (unlike Angular which is a framework), we need to add it ourselves
+- Route is a component that takes a few arguments
+- we focus on: exact, path and component
+- _component_ will be the component we want the router to render
+- _path_ will be a string that's equal to the path itself from the current place in our app
+- _exact_ is a boolean, as name suggested, if path has to be exactly equal in order for a component to be rendered
+
+
+Example#1: 
+
+function App() {
+  return (
+    <div>
+      <Route exact path='/' componenet={HomePage} />
+      <Route exact path='/topics' componenet={TopicsList} />
+      <Route path='/topics/:topicId' componenet={TopicDetail} />
+    </div>
+  )
+}
+

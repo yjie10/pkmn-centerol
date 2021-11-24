@@ -1,0 +1,45 @@
+// notes for self-use 11.23.21
+// 1. directory branch - created directory and menu-item component
+
+Project Design:
+- created two folders: one for reusable components, one for page components
+- page components are most likely going to be used once only
+- therefore two components should be in separated folder
+
+Building:
+- _directory_ and _menu-items_ should be moved into their own components
+- menu-items will be a functional component, no state needed as of now
+- we do want the title to be dynamic, which should be passed in as props; destructuring is used here
+- directory component will need to be a class component, because we need to store the state value of the menu-items
+- we want to map through our categories, and pass the category object into the menu-item
+
+Code#1: 
+// instead of doing the following, which we have to type category every time
+{
+  this.state.categories.map(category => <MenuItem key={category.id} title={category.title} />)
+}
+
+// we can destructure the values off category
+{
+   this.state.categories.map({title, imageUrl, id} => <MenuItem key={id} imageUrl={imageUrl} title={title} />) 
+}
+
+Code#2:
+// using the style attribute which allows us to dynamically make styles on our components
+  <div style={{
+    backgroundImage: `url(${imageUrl})`
+  }} className="menu-item">
+    <div className="content">
+      <h1 className="title">{title}</h1>
+      <span className="subtitle">SHOP NOW</span>
+    </div>
+  </div>
+
+Code#3:
+// does not apply to my proj atm but good to know
+
+// adding something to the className if the value is present
+  <div ...
+    className={`${size} menu-item`}>
+  </div>
+

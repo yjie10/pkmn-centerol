@@ -1,5 +1,5 @@
-// notes for self-use
-
+// notes for self-use 11.22.21
+// homepage component + basic layout
 
 Project Design:
 - final product home page: 6 categories: Plush, Figures & Pins, Game, Apparel, Accessories, Stationaries

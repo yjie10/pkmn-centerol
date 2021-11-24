@@ -1,5 +1,7 @@
 // notes for self-use 11.23.21
-// 1. directory branch - created directory and menu-item component
+/* 1. directory branch - created directory and menu-item component
+   2. styling menu-item (incomplete) 
+ */ 
 
 Project Design:
 - created two folders: one for reusable components, one for page components
@@ -43,3 +45,26 @@ Code#3:
     className={`${size} menu-item`}>
   </div>
 
+- now we want to make another component with className background-image, we want this to contain the background-image instead of the containing div
+
+Code#4:
+  <div style={{
+    backgroundImage: `url(${imageUrl})`
+  }} />
+
+  // we are not wrapping the above div with the content and title, because when scaling image, we don't want the child elements to increase in size as well
+  
+  Code#5: 
+  // this will actually result in the background image and content to be siblings, we add position: absolute to ensure content is always in the center
+  
+    <div className="menu-item">
+ 
+    <div className="background-image" style={{
+      backgroundImage: `url(${imageUrl})`
+    }} />
+
+    <div className="content">
+      <h1 className="title">{title}</h1>
+      <span className="subtitle">SHOP NOW</span>
+    </div>
+  </div>

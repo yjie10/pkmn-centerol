@@ -3,8 +3,39 @@
   1. Finishing up basic React Router
 */
 
+Building:
+- use a component called WithRouter, which is a higher order component
+- a higher order component is essentially a function that takes a component as an argument and returns a modified component
+- just like how menu-item takes argument such as title and imageUrl and renders out in the component, withRouter takes in MenuItem and returns a powered up component that gives us access to the router features
+↑ Code#1 ↑
+
+- added .replace(/\s/g, '') to title when using history.push so it removes white space (for figures & pins)
+
+Code#1:
+// pass MenuItem to withRouter, which withRouter will return us back a powered up MenuItem with access to the props we need access to
+
+const MenuItem = ({ title, imageUrl, history }) => (
+  <div className='menu-item'>
+    <div className='background-image' style={{
+      backgroundImage: `url(${imageUrl})`
+    }} />
+
+    <div className='content'>
+      <h1 className='title'>{title}</h1>
+      <span className='subtitle'>SHOP NOW</span>
+    </div>
+  </div>
+)
+
+// with following code, we will have access to history
+export default withRouter(MenuItem);
+
 Notes: 
 
 1. React Router
 - currently, only homepage has access to the _history_ prop (props.history), because that's the component we passed to the Route
+- although Directory and MenuItem are children of HomePage, only our HomePage component will get access to the history prop
 - so how do we set up our menu-item so it can navigate to different pages?  
+- one way is to pass the history prop into our Directory, and from Directory pass into MenuItem
+- the problem of this approach though, is that it's a bad pattern called prop drilling; children in between don't need the property other than to pass it to their children
+- react router provides a solution for us to avoid doing so

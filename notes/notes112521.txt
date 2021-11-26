@@ -1,0 +1,10 @@
+// notes for self-use 11.25.21
+/* 
+  1. Finishing up basic React Router
+*/
+
+Notes: 
+
+1. React Router
+- currently, only homepage has access to the _history_ prop (props.history), because that's the component we passed to the Route
+- so how do we set up our menu-item so it can navigate to different pages?  

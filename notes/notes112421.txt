@@ -55,6 +55,7 @@ Notes:
 - _component_ will be the component we want the router to render
 - _path_ will be a string that's equal to the path itself from the current place in our app
 - _exact_ is a boolean, as name suggested, if path has to be exactly equal in order for a component to be rendered
+- there are two ways to navigate using React router: 1) Link 2) history prop
 
 
 Example#1: 

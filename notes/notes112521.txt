@@ -9,7 +9,12 @@ Building:
 - just like how menu-item takes argument such as title and imageUrl and renders out in the component, withRouter takes in MenuItem and returns a powered up component that gives us access to the router features
 ↑ Code#1 ↑
 
+- instead of setting all the props on MenuItem as we are mapping through, we can use ES6 feature: spread oprator to shorten the code
+↑ Code#2 ↑
+
+- because we don't know in MenuItem, where in Directory we will be, so we can take the _match_ as well
 - added .replace(/\s/g, '') to title when using history.push so it removes white space (for figures & pins)
+↑ Code#3 ↑
 
 Code#1:
 // pass MenuItem to withRouter, which withRouter will return us back a powered up MenuItem with access to the props we need access to
@@ -29,6 +34,49 @@ const MenuItem = ({ title, imageUrl, history }) => (
 
 // with following code, we will have access to history
 export default withRouter(MenuItem);
+
+Code#2:
+// a little ES6 trick we can use here, spread operator
+
+// Original code
+  render() {
+    return (
+      <div className='directory-menu'>
+        {
+          this.state.categories.map(({ id, title, imageUrl }) => <MenuItem key={id} title={title} imageUrl={imageUrl} />)
+        }
+      </div>
+    )
+  }
+
+// w/ spread operator; equivalent to above
+  render() {
+    return (
+      <div className='directory-menu'>
+        {
+          this.state.categories.map(({ id, ...otherCategoryProps }) => <MenuItem key={id} {...otherCategoryProps} />)
+        }
+      </div>
+    )
+  }
+
+Code#3:
+// /somematchedURL/linkURL
+
+const MenuItem = ({ title, imageUrl, history, match }) => (
+  <div className='menu-item' onClick={() => history.push(`${match.url}${title.replace(/\s/g, '')}`)}>
+    <div className='background-image' style={{
+      backgroundImage: `url(${imageUrl})`
+    }} />
+
+    <div className='content'>
+      <h1 className='title'>{title}</h1>
+      <span className='subtitle'>SHOP NOW</span>
+    </div>
+  </div>
+)
+
+---
 
 Notes: 
 

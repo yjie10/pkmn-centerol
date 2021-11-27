@@ -12,6 +12,10 @@ Project Design:
 Building:
 - because we need to store the data related to the actual collection on our shop page, the shop page will be a class component
 - shop data is moved into a separate file as it's getting too big
+- create a collection-preview component, the component will be a functional component
+- we'll map through our preview in collection-preview
+- now we import collection-preview into the shoppage
+  · my dumbass spent time debugging data related problem and yes we map through collections in shoppage...
 
 
 

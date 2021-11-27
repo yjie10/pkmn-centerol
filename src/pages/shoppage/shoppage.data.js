@@ -1,5 +1,3 @@
-import ShopPage from "./shoppage.component"
-
 const SHOP_DATA = [
   {
     id: 1,
@@ -64,7 +62,7 @@ const SHOP_DATA = [
   },
   {
     id: 2,
-    title: 'figures & pins',
+    title: 'Figures & Pins',
     routeName: 'figures&pins',
     items: [
       {
@@ -119,7 +117,7 @@ const SHOP_DATA = [
   },
   {
     id: 3,
-    title: 'game',
+    title: 'Game',
     routeName: 'game',
     items: [
       {
@@ -156,7 +154,7 @@ const SHOP_DATA = [
   },
   {
     id: 4,
-    title: 'apparel',
+    title: 'Apparel',
     routeName: 'apparel',
     items: [
       {
@@ -205,7 +203,7 @@ const SHOP_DATA = [
   },
   {
     id: 5,
-    title: 'accessories',
+    title: 'Accessories',
     routeName: 'accessories',
     items: [
       {

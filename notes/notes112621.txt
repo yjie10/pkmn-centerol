@@ -1,0 +1,19 @@
+// notes for self-use 11.25.21
+/* 
+  Building a Shop Page for final product
+*/
+
+Project Design:
+- next we will be building the shop page showing collection of all category of items
+- there will be 4 (?) items for preview in each category, and a link to the actual category
+- we will setup a _Collection Preview_ on our shop page
+- we will be building a component for shop page itself (like home page), and a component for collection preview, and a component for the collection item
+
+Building:
+- because we need to store the data related to the actual collection on our shop page, the shop page will be a class component
+- shop data is moved into a separate file as it's getting too big
+
+
+
+Qs:
+- Lecture Shop Page has included props in constructor and super, but when I console log it it doesn't seem to contain anything at the moment

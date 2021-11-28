@@ -1,0 +1,28 @@
+// notes for self-use 11.27.21
+/* 
+  Building a Shop Page for final product (cont.)
+*/
+
+Build:
+- (cont.) loop thorugh collections on the Shop Page component, we will destructure the id and then use spread operator just like what we did for Directory
+- now we filter the items to be displayed (preview) to limit to 4 (for now); for filter: display items index < 4 (0, 1, 2, 3)
+
+
+- we are chaining the array methods here (filter & map)
+- things to keep in mind here is that whenever the collection-preview component gets rendered, the array methods gets called everytime as well, which can cause a performance problem if the array gets too large or on a slower computer
+- also it kind of bothers me the fact in the filter method, we only using index and don't have to use the item...
+- we'll look at how to handle this kind of problem in later lectures
+- just keep in mind that these anonymous function calls do get called over and over again whenever the component render or rerenders
+↑ Code#1 ↑
+
+Code#1:
+
+    <div className='preview'>
+      {/* mapping through the preview */}
+      {items
+        .filter((item, index) => index < 4)
+        .map(item => (
+        <div key={item.id}>{item.name}</div>
+      ))}
+    </div>
+

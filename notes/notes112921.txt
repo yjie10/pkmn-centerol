@@ -1,0 +1,18 @@
+// notes for self-use 11.29.21
+/* 
+  
+*/
+
+Design: 
+- now that we have the collection preview, we are going to start bulding the collection items
+- the collection item component consists of an image, item title, item price and the button that allows the user to add the item to the cart
+- functionality will be added later
+
+Build: 
+- props will be passed in, but no state needed for collection item
+- the props we are passing in are the items props, which consists id, name, imageUrl and price
+- for image, do the same for what we did for menu-item, using style attribute
+- and then we will have collection-footer, which consists of two span elements for the item name and item price
+- need to spend some time on css later
+- now we pass collection-item component into collection-preview component, we can spread the item props like what we did for directory and shop-page
+- now we add some padding to App.css so it gives some space

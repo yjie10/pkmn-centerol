@@ -6,25 +6,25 @@ const SHOP_DATA = [
     items: [
       {
         id: 1,
-        name: 'Piplup & Mantyke Pokémon Undersea Holiday Plush - 8 ¾ In.',
+        name: 'Piplup & Mantyke Pokémon Undersea',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P8237/701-29764/P8237_701-29764_01.jpg',
         price: 27.99
       },
       {
         id: 2,
-        name: 'Glaceon Pokémon Undersea Holiday Plush - 8 ¾ In.',
+        name: 'Glaceon Pokémon Undersea',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P8237/701-29763/P8237_701-29763_01.jpg',
         price: 19.99
       },
       {
         id: 3,
-        name: 'Pikachu Pokémon Undersea Holiday Plush - 8 ¾ In.',
+        name: 'Pikachu Pokémon Undersea',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P8237/701-29765/P8237_701-29765_01.jpg',
         price: 21.99
       },
       {
         id: 4,
-        name: 'Spheal Pokémon Undersea Holiday Plush Key Chain',
+        name: 'Spheal Pokémon Undersea',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P8237/701-29758/P8237_701-29758_01.jpg',
         price: 14.99
       },
@@ -36,25 +36,25 @@ const SHOP_DATA = [
       },
       {
         id: 6,
-        name: 'Buizel Pokémon Undersea Holiday Plush Key Chain',
+        name: 'Buizel Pokémon Undersea',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P8237/701-29761/P8237_701-29761_01.jpg',
         price: 14.99
       },
       {
         id: 7,
-        name: 'Gigantamax Pikachu Poké Plush - 31 ½ In.',
+        name: 'Gigantamax Pikachu',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P6480/701-06560/P6480_701-06560_01.jpg',
         price: 399.99
       },
       {
         id: 8,
-        name: 'Lucario Poké Plush - 47 ¼ In.',
+        name: 'Lucario Poké Plush',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P8133/701-94581/P8133_701-94581_02.jpg',
         price: 419.99
       },
       {
         id: 9,
-        name: 'Piplup Pokémon Squishy Plush - 13 ¾ In.',
+        name: 'Piplup Pokémon Squishy Plush',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7730/701-29235/P7730_701-29235_01.jpg',
         price: 35.99
       }
@@ -67,43 +67,43 @@ const SHOP_DATA = [
     items: [
       {
         id: 1,
-        name: 'Gastly, Haunter & Gengar Pokémon Pixel Pins (3-Pack)',
+        name: 'Gastly, Haunter & Gengar Pixel Pins',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7185/710-08471/P7185_710-08471_01.jpg',
         price: 18.99
       },
       {
         id: 2,
-        name: 'Eevee, Vaporeon, Jolteon & Flareon Pokémon Pixel Pins (4-Pack)',
+        name: 'Eevee, Vaporeon, Jolteon & Flareon Pixel Pins',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7185/710-08463/P7185_710-08463_01.jpg',
         price: 24.99
       },
       {
         id: 3,
-        name: 'Pokémon Holiday Joy Pokémon Pins (3-Pack)',
+        name: 'Pokémon Holiday Joy Pins',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7922/710-29362/P7922_710-29362_01.jpg',
         price: 19.99
       },
       {
         id: 4,
-        name: 'Pokémon Gallery Figure: Scorbunny (Quick Attack)',
+        name: 'Gallery Figure: Scorbunny',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P5417/703-05404/P5417_703-05404_01.jpg',
         price: 14.99
       },
       {
         id: 5,
-        name: 'Ditto Pokémon Pixel Pin',
+        name: 'Ditto Pixel Pin',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7185/710-08465/P7185_710-08465_01.jpg',
         price: 7.99
       },
       {
         id: 6,
-        name: 'Vulpix & Ninetales Pokémon Pins (2-Pack)',
+        name: 'Vulpix & Ninetales Pins',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P4526/710-03523/P4526_710-03523_01.jpg',
         price: 12.99
       },
       {
         id: 7,
-        name: 'Feasting with Friends Sliding Celebrations Pokémon Pin',
+        name: 'Feasting with Friends Pin',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P6235/710-05997/P6235_710-05997_01.jpg',
         price: 9.99
       },
@@ -128,7 +128,7 @@ const SHOP_DATA = [
       },
       {
         id: 2,
-        name: 'Pokémon Shield + Pokémon Shield Expansion Pass',
+        name: 'Pokémon Shield + Expansion Pass',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7480/716-59721/P7480_716-59721_01.jpg',
         price: 89.99
       },
@@ -140,7 +140,7 @@ const SHOP_DATA = [
       },
       {
         id: 4,
-        name: 'Sinnoh Champion Team Protection Case for Nintendo Switch by PowerA',
+        name: 'Sinnoh Champion Team Protection Case for Nintendo Switch',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7909/710-29533/P7909_710-29533_01.jpg',
         price: 19.99
       },

@@ -1,6 +1,6 @@
 // notes for self-use 11.29.21
 /* 
-  
+  Collection Item for preview
 */
 
 Design: 

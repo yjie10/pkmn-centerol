@@ -1,0 +1,32 @@
+// notes for self-use 11.30.21
+/* 
+  Header Component  
+*/
+
+Design:
+- Header for user to navigate between different pages easier
+- we want the Header component to be present at all times
+- will be using svg file for the logo, which we create an assets folder under source
+
+Build:
+- Header component will be a functional component
+- consists of option links (logo (should direct to home), shop, contact and signin, shopping cart) 
+- import in Link from react-router for navigation, and logo from assets
+- the <Link> will be the logo's container which we will apply styles to
+- other options (shop, contact, signin, shopping cart) will be in a separate container, which will also be Links
+- we will import the Header into App.js, and place the Header out of the <Switch />, and <Header /> will be rendered regardless of which of the Routes/Components are displayed
+- will modify the <Link> tags so there's no underline that comes with <a> tag, will do so in App.css
+- we can select <Link> and apply the styles, but since we would most likely want to apply to all <a> tags, so we'll just target <a> and put it in App.css
+
+Notes: 
+
+- (Code#1) this is a special syntax in React for importing SVG
+
+↓ Code#1 ↓
+
+```
+
+import { ReactComponent as Logo } from '../../assets/pkball.svg';
+
+```
+

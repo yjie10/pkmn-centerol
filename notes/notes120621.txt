@@ -6,6 +6,7 @@
   Lectures Covered:
   Introducing Forms in React 
   Sign In Component
+  Form Input Component
 */
 
 # Introducing Forms in React
@@ -57,3 +58,18 @@ Notes:
   const { value, name } = event.target;
   this.setState({ [name]: value });
   ```
+
+···
+
+# Form Input Component
+
+Notes: 
+- <input> created in the *SignIn* component under <form> will be moved into separate component
+  we can better customize the form. 
+- the component will be called *FormInput* and will be a functional component since no state is needed. 
+- it will take a +HandleChange+ prop, a label, and the rest of the props. 
+- the component will selectively render, which check to see if the developer passes in a label;
+  if no label is passed in, then nothing will be rendered. 
+- we will also selectively add a class to the <label> which is shrink (animation when user types on the field),
+  and the label will always have the class +form-input-label+.
+- import in the *FormInput* and replace the <input> in the *SignIn* component. 

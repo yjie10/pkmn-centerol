@@ -1,0 +1,21 @@
+// notes for self-use 12.06.21
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+  Introducing Forms in React 
+*/
+
+
+# Introducing Forms in React
+
+Notes: 
+- sign in pages are common in apps; it is a combination of creating +Forms+ 
+  and doing something called +User Authentication+, where we are able to register 
+  a user and check if a user already exist and let them sign in. 
+- things to consider: where should the state of *SignIn* Component live? 
+  · the state should live in their (*SignIn* and *Register*) own states because they don't need
+    to talk to each other
+- we want to keep the state to the lowest possible level, keeping the concern in place to
+  whatever component needs it so we are more efficient with our code

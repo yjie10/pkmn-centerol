@@ -1,0 +1,117 @@
+// notes for self-use 12.06.21
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+  Introducing Forms in React 
+  Sign In Component
+  Form Input Component
+  Custom Button Component
+*/
+
+# Introducing Forms in React
+
+Notes: 
+- sign in pages are common in apps; it is a combination of creating +Forms+ 
+  and doing something called +User Authentication+, where we are able to register 
+  a user and check if a user already exist and let them sign in. 
+
+- things to consider: where should the state of *SignIn* Component live? 
+  · the state should live in their (*SignIn* and *SignUp*) own states because they don't need
+    to talk to each other. 
+
+- we want to keep the state to the lowest possible level, keeping the concern in place to
+  whatever component needs it so we are more efficient with our code. 
+
+···
+
+# Sign In Component
+
+Notes:
+- we are creating a *SignInSignUpPage* component which contains:
+  1. SignIn Component
+  2. SignUp Component
+
+- *SignInSignUpPage* will be a functional component because 
+  state will be kept on *SignIn* and *SignUp* components respectively.
+
+- imported the new page component into App.js & updated Header Component,
+  now route to /signin will display the *SignInSignUpPage* respectively. 
+
+- will be building the *SignIn* component first and set up +Firebase+ for +User Authentication+. 
+
+- as mentioned above, *SignIn* will be a +class component+ to store user input (e.g. email, password, etc.). 
+
+- <em>I will be making some changes to the styling. </em>
+
+- we will be using the native +<form>+ element to create the form first, and later apply custom styling. 
+
+- added a +onSubmit+ function that calls the method +handleSubmit+ 
+  which for now simply prevents default behavior and clear input fields. 
+
+- added a +onChange+ function to input fields that calls the method +handleChange+
+  which will handle the update to input fields (email & password). 
+  · we dynamically set the state; 
+    name is the name we assigned to the element, 
+    state is the value the user typed in. 
+
+  ```
+  const { value, name } = event.target;
+  this.setState({ [name]: value });
+  ```
+
+···
+
+# Form Input Component
+
+Notes: 
+- <input> created in the *SignIn* component under <form> will be moved into separate component
+  we can better customize the form. 
+
+- the component will be called *FormInput* and will be a functional component since no state is needed. 
+
+- it will take a +HandleChange+ prop, a label, and the rest of the props. 
+
+- the component will selectively render, which check to see if the developer passes in a label;
+  if no label is passed in, then nothing will be rendered. 
+
+- we will also selectively add a class to the <label> which is shrink,
+  and the label will always have the class +form-input-label+;
+  it checks if the user has typed something on the input fields, 
+  and apply the styling to have the non-empty field label always shrinked. 
+
+  ```
+  label ? <label className={`${otherProps.value.length ? 'shrink' : ''} form-input-label`}>{label}</label> : null
+  ```
+
+- import in the *FormInput* and replace the <input> in the *SignIn* component. 
+
+- CSS Related: 
+  · $variable-name is a SASS variable. 
+  · @mixin name { // css code } is an easy way to include this whole block of CSS 
+    to anywhere we say @include name(); reusable CSS. 
+  · @include shrinkLabel() is applied to both +&:focus ~ .form-input-label+
+    and +&.shrink+ because if input field has value, even if the user moves away from 
+    the current input field, shrinkLabel() should still be applied. 
+  · review: ~: general sibling selector. Selects all +form-input-label+ within +form-input+.
+
+···
+
+# Custom Button Component 
+
+Notes:
+- we will be using the same button (just w/ different styling) throughout the app. 
+
+- the *CustomButton* component will also be a functional component. 
+
+- ↓ children is what is in <CustomButtom>{children}</CustomButtom> ↓
+- ↓ type of <button> is submit, and the function onSubmit() is added to the form, 
+    which the button have access to as ...otherProps. 
+  ↓
+  
+  ``` Code#1
+  const CustomButton = ({ children, ...otherProps }) => (
+    <button className='custom-button' {...otherProps}>{children}</button>
+  );
+  ``` Code#1

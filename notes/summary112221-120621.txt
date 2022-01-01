@@ -1,0 +1,24 @@
+/* Summary of what was done so far for the project */
+
+__App__
+$ Header (always on the top)
+
+# HomePage
+  - Directory
+    · Menu-Item
+
+# ShopPage
+  - CollectionPreview
+    · Collection-Item
+
+# SignInSignUpPage
+  - Sign-In
+    · Form-Input (input fields such as Email and Password)
+    · Custom-Button
+
+
+(3 pages component, 8 other components) √
+
+/* What to be done next */
+
+- implement Firebase into project for user authentication

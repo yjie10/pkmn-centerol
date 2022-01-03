@@ -21,4 +21,5 @@ $ Header (always on the top)
 
 /* What to be done next */
 
-- implement Firebase into project for user authentication
+- implement Firebase into project for user authentication + SignUp component
+- implement Redux into project / Session Storage + Persistence

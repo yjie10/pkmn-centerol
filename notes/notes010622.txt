@@ -3,7 +3,12 @@
 ++: Referring to some key terms
 
 /*
-
+  Lectures Covered:
+  Firebase Introduction
+  Adding a project to Firebase
+  Google Sign In Authentication 1, 2, 3
+  Firebase Firestore
+  Storing User Data In Firebase (Need to revisit)
 */
 
 
@@ -93,3 +98,36 @@ CSS related:
   and set a padding for the <span>OR</span> and set the background color to white (or matching color w/ app)
   which creates a effct of <hr> but with the text in center and not strikethrough. 
 
+# Firebase Firestore
+
+Notes: 
+- go to Firestore Database and select Create database. 
+- Firebase is a NoSQL database; there are 2 types of data:
+  > 1. collection (like an array)
+  > 2. document
+
+# Storing User Data In Firebase
+
+Notes: 
+- we going to take the user information and create a user profile, which the function will be async,
+  because we are making an API call. 
+
+- the function should check if we are getting back a valid object, that is, when a user is signed in, 
+  not when they sign out. 
+
+- the +firestore+ library gives back one of two different types of potential objects;
+  either:
+  > 1. QueryReference
+    -- an object that represents the "current" place in the db that we are querying
+  > 2. QuerySnapshot 
+
+- from +snapShot+ we check if the user data already exists, if not, we create. 
+
+
+Code #1: 
+// prev code
+```
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => this.setState({ currentUser: user }));
+  }
+```

@@ -1,0 +1,7 @@
+// notes for self-use 01.06.22
+**: Referring to Components
+++: Referring to some key terms
+
+/*
+
+*/

@@ -49,14 +49,14 @@ Notes:
 
 Notes:
 
-Part 1: 
+Part 1 - Setting Up: 
 - Add new folder *firebase* under src. 
 
 - no need +firestore+ yet, but export it for later use. 
 
 - go to Firebase-Authentication, and enable Google. 
 
-Part 2:
+Part 2 - Application listening to Authentication state changes:
 - firebase Authentication, under Users we can see who signed in; 
   how do we add this authentication into our application?
 
@@ -71,4 +71,25 @@ Part 2:
 
 - auth.onAuthStateChanged() - this is an open subscription, we also need to close subscription
   when it unmounts to avoid memory leaks. 
+
+Part 3 - Sign Out of Auth:
+- when the user is signed in, the original +sign in+ should say +sign out+. 
+
+- to implement, need to make sure our *Header* is aware. 
+
+- import +auth+ into *Header* which provides +Sign Out+ for us. 
+
+- +currentUser+ passed in from App will let us know if an user is signed in;
+  we use ternary operator which we will render a div for +Sign Out+ if the user is signed in;
+  and render a +Link+ if the user is not signed in. 
+
+- we will also modify the *CustomButton* and apply styling for the Sign in with Google. 
+  > this will be different from the course final product. 
+
+CSS related: 
+
+- I want a --OR-- separating +Sign In+ button and +Sign In With Google+ button. 
+- the CSS is to wrap the <span>OR</span> with a div, setting the line height to 0 and a border-bottom, 
+  and set a padding for the <span>OR</span> and set the background color to white (or matching color w/ app)
+  which creates a effct of <hr> but with the text in center and not strikethrough. 
 

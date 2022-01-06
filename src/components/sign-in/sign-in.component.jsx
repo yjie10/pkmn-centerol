@@ -32,14 +32,17 @@ class SignIn extends Component {
   render() {
     return (
       <div className='sign-in'>
-        <h2>Sign In</h2>
+        <h2 className='title'>Sign In</h2>
         <span>Sign in with your email and password</span>
 
         <form onSubmit={this.handleSubmit}>
           <FormInput name='email' type='email' value={this.state.email} handleChange={this.handleChange} label='Email' required />
           <FormInput name='password' type='password' value={this.state.password} handleChange={this.handleChange} label='Password' required />
           <CustomButton type='submit'>Sign In</CustomButton>
-          <CustomButton onClick={signInWithGoogle}>Sign In With Google</CustomButton>
+          <div className='alt-signin'>
+            <span>OR</span>
+          </div>
+          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign In With Google</CustomButton>
         </form>
       </div>
     )

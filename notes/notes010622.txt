@@ -13,8 +13,8 @@ Notes:
 
 - To create a Firebase project:
   1. https://console.firebase.google.com
-  2. Create project, enter project name and continue
-  3. Project Overview - </> Web; register App, no need hosting
+  2. Create project, enter project name and continue;
+  3. Project Overview - </> Web; register App, no need hosting.
   4. following code generated: 
 
   ```
@@ -49,6 +49,26 @@ Notes:
 
 Notes:
 
-- Add new folder *firebase* under src
-- no need +firestore+ yet, but export it for later use
-- go to Firebase-Authentication, and enable Google
+Part 1: 
+- Add new folder *firebase* under src. 
+
+- no need +firestore+ yet, but export it for later use. 
+
+- go to Firebase-Authentication, and enable Google. 
+
+Part 2:
+- firebase Authentication, under Users we can see who signed in; 
+  how do we add this authentication into our application?
+
+- we want to store the state of our users (sign in using Google or email/pw) in our 
+  App.js state, so we could pass into components that needs it. 
+
+- therefore, we need to convert our App into a class component and store currentUser in state. 
+
+- we would also want the App to notice when there's a change to the Authentication, 
+  if the user signed in or signed out, firebase auth provides the functionality so we don't have
+  to manuallly fetch. 
+
+- auth.onAuthStateChanged() - this is an open subscription, we also need to close subscription
+  when it unmounts to avoid memory leaks. 
+

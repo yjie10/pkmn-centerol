@@ -5,3 +5,7 @@
 /*
 
 */
+
+Notes:
+
+Backend: Database / Server / Authentication - Firebase handles

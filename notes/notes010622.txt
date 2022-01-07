@@ -3,9 +3,130 @@
 ++: Referring to some key terms
 
 /*
-
+  Lectures Covered:
+  Firebase Introduction
+  Adding a project to Firebase
+  Google Sign In Authentication 1, 2, 3
+  Firebase Firestore
+  Storing User Data In Firebase (Need to revisit)
 */
+
+# Adding a Project to Firebase
 
 Notes:
 
-Backend: Database / Server / Authentication - Firebase handles
+- To create a Firebase project:
+  1. https://console.firebase.google.com
+  2. Create project, enter project name and continue;
+  3. Project Overview - </> Web; register App, no need hosting.
+  4. following code generated: 
+
+  ```
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    import { getAnalytics } from "firebase/analytics";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyC0b0F31tS_p2ZBx16ROUSCPBF3CwCCjtc",
+      authDomain: "pkmn-centerol.firebaseapp.com",
+      projectId: "pkmn-centerol",
+      storageBucket: "pkmn-centerol.appspot.com",
+      messagingSenderId: "371854459025",
+      appId: "1:371854459025:web:a1b2e68052a1cb2c323f30",
+      measurementId: "G-CH48GBYGY6"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+  ```
+
+    - we only need firebaseConfig
+
+
+# Google Sign In Authentication
+
+Notes:
+
+Part 1 - Setting Up: 
+- Add new folder *firebase* under src. 
+
+- no need +firestore+ yet, but export it for later use. 
+
+- go to Firebase-Authentication, and enable Google. 
+
+Part 2 - Application listening to Authentication state changes:
+- firebase Authentication, under Users we can see who signed in; 
+  how do we add this authentication into our application?
+
+- we want to store the state of our users (sign in using Google or email/pw) in our 
+  App.js state, so we could pass into components that needs it. 
+
+- therefore, we need to convert our App into a class component and store currentUser in state. 
+
+- we would also want the App to notice when there's a change to the Authentication, 
+  if the user signed in or signed out, firebase auth provides the functionality so we don't have
+  to manuallly fetch. 
+
+- auth.onAuthStateChanged() - this is an open subscription, we also need to close subscription
+  when it unmounts to avoid memory leaks. 
+
+Part 3 - Sign Out of Auth:
+- when the user is signed in, the original +sign in+ should say +sign out+. 
+
+- to implement, need to make sure our *Header* is aware. 
+
+- import +auth+ into *Header* which provides +Sign Out+ for us. 
+
+- +currentUser+ passed in from App will let us know if an user is signed in;
+  we use ternary operator which we will render a div for +Sign Out+ if the user is signed in;
+  and render a +Link+ if the user is not signed in. 
+
+- we will also modify the *CustomButton* and apply styling for the Sign in with Google. 
+  > this will be different from the course final product. 
+
+CSS related: 
+
+- I want a --OR-- separating +Sign In+ button and +Sign In With Google+ button. 
+- the CSS is to wrap the <span>OR</span> with a div, setting the line height to 0 and a border-bottom, 
+  and set a padding for the <span>OR</span> and set the background color to white (or matching color w/ app)
+  which creates a effct of <hr> but with the text in center and not strikethrough. 
+
+# Firebase Firestore
+
+Notes: 
+- go to Firestore Database and select Create database. 
+- Firebase is a NoSQL database; there are 2 types of data:
+  > 1. collection (like an array)
+  > 2. document
+
+# Storing User Data In Firebase
+
+Notes: 
+- we going to take the user information and create a user profile, which the function will be async,
+  because we are making an API call. 
+
+- the function should check if we are getting back a valid object, that is, when a user is signed in, 
+  not when they sign out. 
+
+- the +firestore+ library gives back one of two different types of potential objects;
+  either:
+  > 1. QueryReference
+    -- an object that represents the "current" place in the db that we are querying
+  > 2. QuerySnapshot 
+
+- from +snapShot+ we check if the user data already exists, if not, we create. 
+
+
+Code #1: 
+// prev code
+```
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => this.setState({ currentUser: user }));
+  }
+```

@@ -6,4 +6,16 @@
   .title {
     margin: 10px 0;
   }
+
+  .alt-signin {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    text-align: center;
+    line-height: 0;
+
+    span {
+      padding: 10px;
+      background-color: #fff;
+    }
+  }
 }

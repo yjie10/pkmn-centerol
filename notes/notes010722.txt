@@ -68,3 +68,23 @@ Code #3:
 
 # Sign Up Component
 
+- the *SignUp* component will be a class component with state; 
+  we will also import in +auth+ and +createUserProfileDocument+ from firebase.
+
+- we will want to do what we did in App.js when we have Google authentication happening (similar). 
+
+Code #1:
+// we check if password and confirm password matches; 
+```
+  handleSubmit = async event => {
+    event.preventDefault();
+
+    const { displayName, email, password, confirmPassword } = this.state;
+
+    if (password !== confirmPassword) {
+      
+    }
+
+    this.setState({ email: '', password: '' });
+  }
+```

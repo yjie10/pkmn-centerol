@@ -36,7 +36,7 @@ class App extends Component {
           })
         })
       } else {
-        this.setState({ currentUser: this.unsubscribeFromAuth });
+        this.setState({ currentUser: null });
       }
     });
   }

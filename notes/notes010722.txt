@@ -65,3 +65,6 @@ Code #3:
     });
   }
 ```
+
+# Sign Up Component
+

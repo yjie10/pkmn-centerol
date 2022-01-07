@@ -5,7 +5,9 @@
 /* 
   Lectures Covered:
   Storing User Data In Our App
-
+  Sign Up Component
+  Sign Up With Email and Password
+  Sign In With Email and Password
 */
 
 # Storing User Data In Our App
@@ -105,4 +107,23 @@ Code #2:
 
 # Sign In With Email and Password
 
+- just as in signup there is auth.createUserWithEmailAndPassword, there is also
+  auth.signInWithEmailAndPassword which allows users to sign in with
+  the email and password they registered. 
 
+Code #1:
+// note just as in signup, handleSubmit will also be async; 
+```
+handleSubmit = async event => {
+    event.preventDefault();
+
+    const { email, password } = this.state;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: '', password: '' });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+```

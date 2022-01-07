@@ -74,7 +74,8 @@ Code #3:
 - we will want to do what we did in App.js when we have Google authentication happening (similar). 
 
 Code #1:
-// we check if password and confirm password matches; 
+// we check if password and confirm password matches; if not, alert the user (this should be changed 
+  to display message in alerting color later on)
 ```
   handleSubmit = async event => {
     event.preventDefault();
@@ -88,3 +89,20 @@ Code #1:
     this.setState({ email: '', password: '' });
   }
 ```
+
+Code #2: 
+// wrap everything in try catch block;
+// after user is created, set everything back to blank; 
+```
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(email, password);
+      await createUserProfileDocument(user, { displayName });
+      this.setState({ displayName: '', email: '', password: '', confirmPassword: '' });
+    } catch (error) {
+      console.log(error);
+    }
+```
+
+# Sign In With Email and Password
+
+

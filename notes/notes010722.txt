@@ -1,0 +1,67 @@
+// notes for self-use 12.06.21
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+  Storing User Data In Our App
+
+*/
+
+# Storing User Data In Our App
+
+- user data was stored in out database, but now we have to
+  store that data in the "state" of our app so we can use it in our app. 
+
+Code #1
+```
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      // check if userAuth is null; when user is signed out, it is null; 
+      if (userAuth) {
+      }
+    });
+  }
+```
+
+- the documentSnapshot object allows us to check if a document exists
+  at this query using the .exists property which returns a boolean. 
+
+- we can also get the +actual properties+ on the object by calling the 
+  .data() method, which returns us a JSON object of the document. 
+
+Code #2: 
+// we get the id from the snapShot, and the actual data from .data() method; 
+// therefore, we set the currenUser's id to the id, and spread in the rest of the data; 
+```
+        const userRef = createUserProfileDocument(userAuth);
+        userRef.onSnapshot(snapShot => {
+          this.setState({currentUser: {
+            id: snapShot.id,
+            ...snapShot.data()
+          }})
+        })
+```
+
+Code #3: 
+// we set the currentUser back to null if the user signs out, wrapped in the else block; 
+```
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          })
+        })
+      } else {
+        this.setState({ currentUser: this.unsubscribeFromAuth });
+      }
+    });
+  }
+```

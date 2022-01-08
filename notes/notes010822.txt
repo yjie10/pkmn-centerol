@@ -1,0 +1,19 @@
+// notes for self-use 01.08.22
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+
+*/
+
+Overview:
+- now implementing Redux into the App.
+
+- React is a UI library, focusing on the UI. As our App
+  grow more complicated, the state is going to grow as well. 
+
+- we will implement in the Redux library into our App which
+  allows +React State+ to be more scalable. 
+
+# Redux Introduction

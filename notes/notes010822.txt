@@ -4,7 +4,9 @@
 
 /* 
   Lectures Covered:
-
+  Section Overview
+  Redux Introduction
+  Redux Concepts
 */
 
 Overview:
@@ -17,3 +19,37 @@ Overview:
   allows +React State+ to be more scalable. 
 
 # Redux Introduction
+- Redux === this.state
+
+- app can get very complicated as state grew large, 
+  so Redux solves the problem by removing all the state
+  from the components, and instead have +props+ so all the
+  components just have +props+ being passed down. 
+
+- the state will be kept in a +store+, and a +store+ is simply
+  just the state (this.state) but in one massive object. 
+
+# Redux Concepts
+- Redux is good for managing large state, 
+  useful for sharing data between components, 
+  predictable state management using the 3 principles. 
+
+- the 3 principles: 
+  1. Single source of truth (one single big object that describes the entire state of the App), 
+  2. State is read only (immutability, prevents unexpected behaviors), 
+  3. Changes using pure functions (receives an input and always return an output that is predictable)
+
+- Redux flow: Action -> Root Reducer -> Store -> DOM changes
+  > Action: such as clicking a button or dropdown; 
+  > Reducer: once action is performed, it goes through this step. Reducer is a pure function, which
+    the input is the action. 
+  > Store: the output created by the reducer is the store, which it gets updated. 
+  > DOM changes: React notices the change and updates the DOM. 
+
+- Redux uses an architectural pattern called the +Flux Pattern+ (one way data flow): 
+  Action -> Dispatcher -> Store -> View
+
+- Redux doesn't neccessarily replace React state. It is a common pattern
+  to keep only important state in +Redux Store+ while keeping UI specific 
+  state like form inputs in this.state. 
+

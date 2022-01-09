@@ -7,6 +7,7 @@
   Section Overview
   Redux Introduction
   Redux Concepts
+  Redux Actions and Reducers
 */
 
 Overview:
@@ -28,6 +29,8 @@ Overview:
 
 - the state will be kept in a +store+, and a +store+ is simply
   just the state (this.state) but in one massive object. 
+
+<hr />
 
 # Redux Concepts
 - Redux is good for managing large state, 
@@ -53,3 +56,68 @@ Overview:
   to keep only important state in +Redux Store+ while keeping UI specific 
   state like form inputs in this.state. 
 
+<hr />
+
+# Redux In Our Application
+- identify the problems in our current existing App:
+  > App component: 
+    1. anything related to when user (built, authenticated and stored in DB)
+    is all kept in the App state; if we were to pass it down to components
+    nested in other components, it would create a behavior called +prop drilling+.
+    This is a bad behavior because the components in between doesn't need the prop. 
+
+- Redux In Our App diagram (01.08.22) see under folder. 
+
+<hr />
+
+# Redux Actions and Reducers
+- +action+ is an object that has a +type+ with a string value and
+  +payload+ with any value. 
+
+- after +action+ is triggered, it go into +reducer+ and check
+  type of action is applicable to that +reducer+. 
+  e.g. if we update user, only user +reducer+ cares about the action. 
+
+- and then the reducer passes it as prop to the component. 
+  e.g. if we update user, we update the user reducer with payload, 
+  and then pass currentUser as a prop to the component. 
+
+- it will always follow the above flow. 
+
+- Redux is essentially doing similar things to this.setState(). 
+
+Code #1:
+/*
+  - every reducer is a function;
+  - the function takes a state and action, 
+    > the state is the previous state that it was in;
+      the state before this new action; 
+  - returns an new object, and the object is the new state of
+    our user reducer (example used in this case); 
+*/
+```
+const userReducer = (currentState, action) => {
+  switch (action.type) {
+    case 'SET_CURRENT_USER':
+      return {
+        ...currentState,
+        currentUser: action.payload
+      };
+    default:
+      return currentState;
+  }
+}; // => { currentUser: { ... } }
+```
+
+- we always return a new object because we want the component
+  to be re-rendered.
+
+- if none of the action types matched, then we just return the current state, 
+  because we do not want to re-render anything in this case. The action
+  did not affect our reducer. 
+
+- the reducer only updates if the type is relavent to it. 
+
+- again to summarize, +reducers+ are a function that takes in the
+  currentState and action, and based on the action, it determines
+  whether or not it needs to re-render. 

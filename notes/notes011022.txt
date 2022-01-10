@@ -59,4 +59,39 @@ const userReducer = (state = INITIAL_STATE, action) =>
 - in order to combine all the reducers, need to import in a function 
   called +combineReducers+ from redux library inside root-reducer.
 
-- next step is to bring it into the store.   
+- next step is to bring it into the store;
+  create new store.js under redux. 
+
+- +createStore+ needs to be imported as well as +applyMiddleware+;
+  middleware is for whenever action gets fired or dispatched, we can 
+  catch and display them; logger is useful for debugging redux code.
+
+- the middleware the store is expecting is in the form of an array. 
+
+Code #3:
+```
+const middlewares = [logger];
+```
+
+- to actually create the store, we use +createStore+ which gets a 
+  root reducer and the return value from applyMiddleware which we spread in middlewares.
+
+Code #4:
+// the spread operator will spread in all the values in the array into
+// the function applyMiddleware as individual arguments. 
+```
+  const store = createStore(rootReducer, applyMiddleware(...middlewares));
+``` 
+
+- the above was done so the code is more scalable, because if there were
+  new middleware, we would only have to make changes to the const middlewares;
+
+Code #5:
+// we could've done this
+```
+  const store = createStore(rootReducer, applyMiddleware(logger));
+```
+
+- after store is exported out, we bring it into index.js into *Provider*.  
+
+

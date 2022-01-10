@@ -1,0 +1,62 @@
+// notes for self-use 01.10.22
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+  Setting Up Redux 1
+
+*/
+
+# Setting Up Redux
+- Action -- Middleware --> Root Reducer -> Store -> DOM changes
+
+- +middleware+ is a piece of code that gets the action before the root reducuer. 
+
+Code #1:
+// index.js
+
+// the new component we get from react-redux that will give our 
+// application access to the store and reducers
+```
+import { Provider } from 'react-redux';
+```
+
+- *Provider* should be wrapped around the entire application. 
+
+- just like what was done for firebase, a new folder called redux 
+  will be created under src. 
+
+- we will first write the +root-reducer+. It is the base object that
+  represents all of the state of the application. 
+
+- will be writing reducer for +user+. Anything related to user will go under here;
+  right now, currentUser state lives in App.js. 
+
+- reducer gets the +initial state+ and +action+; action consists of type and a payload. 
+
+- the state is something redux +store+ going to pass to the reducer 
+  whenever an action fires; the state is whatever the state is currently
+  when the action gets fired. 
+
+- when the state is fired for the first time, it's going to be nothing bc redux doesn't know;
+  and therefore we need to set an initial state, just like what we usually do in 
+  this.state = {};
+
+Code #2:
+```
+const INITIAL_STATE = { currentUser: null }; 
+// default param, if state is ever undefined it will be set to INITIAL_STATE
+const userReducer = (state = INITIAL_STATE, action) =>
+```
+
+- every single reducer gets every single action that ever gets fired,
+  even if the action are not related to the reducer; 
+  that's why we default return the state;
+
+- export userReducer and bring it into the root-reducer. 
+
+- in order to combine all the reducers, need to import in a function 
+  called +combineReducers+ from redux library inside root-reducer.
+
+- next step is to bring it into the store.   

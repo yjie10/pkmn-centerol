@@ -6,6 +6,9 @@
   Lectures Covered:
   Setting Up Redux 1
   Setting Up Redux 2
+  connect() and mapStateToProps
+  mapDispatchToProps
+  User Redirect and User Action Type
 */
 
 Summary: 

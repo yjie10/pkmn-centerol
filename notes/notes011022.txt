@@ -121,6 +121,81 @@ Code #5:
   +connect+ is a higher order component, which lets us to modify our component
   to have access to things related to redux. 
 
+Code #1: 
 ```
   import { connect } from 'react-redux';
 ```
+
+- going to pass 2 functions, the second one being optional; 
+
+- the first argument: function that allows us to access the state;
+  the state being root reducer. 
+
+Code #2:
+// equal to a function, returning an object, where the name of the property
+// will be the property we want to pass in, and value will be the value;
+
+// we get the state object (the root reducer / top level root reducer) and
+// we want to pass in a currentUser property, where the value will be state.user.currentUser;
+```
+// the naming can be anything but mapStateToProps is standard with redux codebases
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser
+})
+
+// state (root reducer) -> user -> user reducer -> currentUser
+```
+
+Code #3:
+// this will return us another HOC that we pass in *Header*;
+```
+export default connect(mapStateToProps)(Header);
+```
+
+- now we can remove the passing of currentUser from App state. 
+
+Code #4:
+```
+  <Header currentUser={this.state.currentUser} /> // No longer
+
+  ->
+
+  <Header />
+
+```
+
+
+<hr />
+
+
+# mapDispatchToProps
+
+- now that *Header* is modified, to be receiving +currentUser+ value
+  from reducer, App.js needs to be updated as well so that it's able to
+  update the reducer value with the new _setCurrentUser_ action. 
+
+- +connect+ will be needed within App.js as well. 
+
+- as mentioned previously, connect() can take in 2 arguments;
+  the first is mapStateToProps, the second is mapDispatchToProps;
+  mapDispatchToProps will be used in App.js.
+
+- since no state is needed, first argument (mapStateToProps) can be null;
+
+Code #1:
+// gets +dispatch+ property and will return an object where the 
+// name of the property we want to pass in dispatches the new action we trying to pass; 
+// setCurrentUser in this case; (import into App.js)
+```
+const mapDispatchToProps = ({
+  // goes to a function that gets the user obejct and then calls dispatch -- a way for redux
+  // to know the object passed in goes to every reducer -- ????
+
+  // just dispatching the object
+  setCurrentUser: user => dispatch(setCurrentUser(user)); // user here will be used as payload
+});
+```
+
+- after passing in the second argument, we no longer need constructor with this.state;
+
+- setState code will be replaced with setCurrentUser action code. 

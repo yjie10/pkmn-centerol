@@ -1,0 +1,236 @@
+// notes for self-use 01.10.22
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+  Setting Up Redux 1
+  Setting Up Redux 2
+  connect() and mapStateToProps
+  mapDispatchToProps
+  User Redirect and User Action Type
+*/
+
+Summary: 
+- setting up redux; configuring. 
+- wrap entire application with <Provider> so whole app has access to redux. (?)
+- redux folder under src, and inside redux we have root-reducer and store. 
+- each slice of different reducer will be in its own folder & reducer (e.g. user reducer).
+- in the slice of the reducer, e.g. user, we have this reducer _function_ that takes in 
+  a state (initial / current state) and an action. 
+- use switch case (can also use if-else) and if an action match the state will be updated. 
+- action will be in its own file;
+  the action has two parts: 1) type 2) payload; type is a string, and payload can be anything;
+  in this case, the type is SET_CURRENT_USER and the payload is user. 
+- import in the slice of the reducer into root-reducer, which is to be passed into store to have redux work. 
+
+# Setting Up Redux
+- Action -- Middleware --> Root Reducer -> Store -> DOM changes
+
+- +middleware+ is a piece of code that gets the action before the root reducuer. 
+
+Code #1:
+// index.js
+
+// the new component we get from react-redux that will give our 
+// application access to the store and reducers
+```
+import { Provider } from 'react-redux';
+```
+
+- *Provider* should be wrapped around the entire application. 
+
+- just like what was done for firebase, a new folder called redux 
+  will be created under src. 
+
+- we will first write the +root-reducer+. It is the base object that
+  represents all of the state of the application. 
+
+- will be writing reducer for +user+. Anything related to user will go under here;
+  right now, currentUser state lives in App.js. 
+
+- reducer gets the +initial state+ and +action+; action consists of type and a payload. 
+
+- the state is something redux +store+ going to pass to the reducer 
+  whenever an action fires; the state is whatever the state is currently
+  when the action gets fired. 
+
+- when the state is fired for the first time, it's going to be nothing bc redux doesn't know;
+  and therefore we need to set an initial state, just like what we usually do in 
+  this.state = {};
+
+Code #2:
+```
+const INITIAL_STATE = { currentUser: null }; 
+// default param, if state is ever undefined it will be set to INITIAL_STATE
+const userReducer = (state = INITIAL_STATE, action) =>
+```
+
+- every single reducer gets every single action that ever gets fired,
+  even if the action are not related to the reducer; 
+  that's why we default return the state;
+
+- export userReducer and bring it into the root-reducer. 
+
+- in order to combine all the reducers, need to import in a function 
+  called +combineReducers+ from redux library inside root-reducer.
+
+- next step is to bring it into the store;
+  create new store.js under redux. 
+
+- +createStore+ needs to be imported as well as +applyMiddleware+;
+  middleware is for whenever action gets fired or dispatched, we can 
+  catch and display them; logger is useful for debugging redux code.
+
+- the middleware the store is expecting is in the form of an array. 
+
+Code #3:
+```
+const middlewares = [logger];
+```
+
+- to actually create the store, we use +createStore+ which gets a 
+  root reducer and the return value from applyMiddleware which we spread in middlewares.
+
+Code #4:
+// the spread operator will spread in all the values in the array into
+// the function applyMiddleware as individual arguments. 
+```
+  const store = createStore(rootReducer, applyMiddleware(...middlewares));
+``` 
+
+- the above was done so the code is more scalable, because if there were
+  new middleware, we would only have to make changes to the const middlewares;
+
+Code #5:
+// we could've done this
+```
+  const store = createStore(rootReducer, applyMiddleware(logger));
+```
+
+- after store is exported out, we bring it into index.js into *Provider*. 
+
+
+<hr />
+
+
+# connect() and mapStateToProps
+- we know conceptually we need to bring user reducers -- currentUser value into where we needed, 
+  which will be our *Header* component, because currently *Header* is getting the currentUser from App.js. 
+
+- what we want is the *Header* component to pull the user off the user reducer. 
+
+- first thing to do is to import in +connect+ function from react redux; 
+  +connect+ is a higher order component, which lets us to modify our component
+  to have access to things related to redux. 
+
+Code #1: 
+```
+  import { connect } from 'react-redux';
+```
+
+- going to pass 2 functions, the second one being optional; 
+
+- the first argument: function that allows us to access the state;
+  the state being root reducer. 
+
+Code #2:
+// equal to a function, returning an object, where the name of the property
+// will be the property we want to pass in, and value will be the value;
+
+// we get the state object (the root reducer / top level root reducer) and
+// we want to pass in a currentUser property, where the value will be state.user.currentUser;
+```
+// the naming can be anything but mapStateToProps is standard with redux codebases
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser
+})
+
+// state (root reducer) -> user -> user reducer -> currentUser
+```
+
+Code #3:
+// this will return us another HOC that we pass in *Header*;
+```
+export default connect(mapStateToProps)(Header);
+```
+
+- now we can remove the passing of currentUser from App state. 
+
+Code #4:
+```
+  <Header currentUser={this.state.currentUser} /> // No longer
+
+  ->
+
+  <Header />
+
+```
+
+
+<hr />
+
+
+# mapDispatchToProps
+
+- now that *Header* is modified, to be receiving +currentUser+ value
+  from reducer, App.js needs to be updated as well so that it's able to
+  update the reducer value with the new _setCurrentUser_ action. 
+
+- +connect+ will be needed within App.js as well. 
+
+- as mentioned previously, connect() can take in 2 arguments;
+  the first is mapStateToProps, the second is mapDispatchToProps;
+  mapDispatchToProps will be used in App.js.
+
+- since no state is needed, first argument (mapStateToProps) can be null;
+
+Code #1:
+// gets +dispatch+ property and will return an object where the 
+// name of the property we want to pass in dispatches the new action we trying to pass; 
+// setCurrentUser in this case; (import into App.js)
+```
+const mapDispatchToProps = ({
+  // goes to a function that gets the user obejct and then calls dispatch -- a way for redux
+  // to know the object passed in goes to every reducer -- ????
+
+  // just dispatching the object
+  setCurrentUser: user => dispatch(setCurrentUser(user)); // user here will be used as payload
+});
+```
+
+- after passing in the second argument, we no longer need constructor with this.state;
+
+- setState code will be replaced with setCurrentUser action code. 
+
+
+<hr />
+
+
+# User Redirect and User Action Type
+- we want to redirect user once they are signed in and they should not have 
+  access to the sign in page anymore.
+
+- need 2 things: 1) *Redirect* component from react router and 2) need currentUser from Redux state;
+
+Code #1:
+```
+  <Route path='/signin' component={SignInSignUpPage} /> // current code
+
+  ->
+
+  // instead of component, we are going to use render; 
+  // by using render, it will return some JS code
+```
+
+- check if user is signed in, if so we will redirect the user to the home page,
+  if not we render <SignInSignUpPage/>;
+
+- another modification to be made is to the actions; right now 
+  the action and in the reducer are all hard coded. To avoid typos, 
+  a new file user.types is created to store the userActionTypes which 
+  is then imported into reducer and action;
+
+
+
+

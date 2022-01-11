@@ -5,8 +5,21 @@
 /* 
   Lectures Covered:
   Setting Up Redux 1
-
+  Setting Up Redux 2
 */
+
+Summary: 
+- setting up redux; configuring. 
+- wrap entire application with <Provider> so whole app has access to redux. (?)
+- redux folder under src, and inside redux we have root-reducer and store. 
+- each slice of different reducer will be in its own folder & reducer (e.g. user reducer).
+- in the slice of the reducer, e.g. user, we have this reducer _function_ that takes in 
+  a state (initial / current state) and an action. 
+- use switch case (can also use if-else) and if an action match the state will be updated. 
+- action will be in its own file;
+  the action has two parts: 1) type 2) payload; type is a string, and payload can be anything;
+  in this case, the type is SET_CURRENT_USER and the payload is user. 
+- import in the slice of the reducer into root-reducer, which is to be passed into store to have redux work. 
 
 # Setting Up Redux
 - Action -- Middleware --> Root Reducer -> Store -> DOM changes
@@ -92,6 +105,4 @@ Code #5:
   const store = createStore(rootReducer, applyMiddleware(logger));
 ```
 
-- after store is exported out, we bring it into index.js into *Provider*.  
-
-
+- after store is exported out, we bring it into index.js into *Provider*. 

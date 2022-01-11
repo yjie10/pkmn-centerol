@@ -106,3 +106,21 @@ Code #5:
 ```
 
 - after store is exported out, we bring it into index.js into *Provider*. 
+
+
+<hr />
+
+
+# connect() and mapStateToProps
+- we know conceptually we need to bring user reducers -- currentUser value into where we needed, 
+  which will be our *Header* component, because currently *Header* is getting the currentUser from App.js. 
+
+- what we want is the *Header* component to pull the user off the user reducer. 
+
+- first thing to do is to import in +connect+ function from react redux; 
+  +connect+ is a higher order component, which lets us to modify our component
+  to have access to things related to redux. 
+
+```
+  import { connect } from 'react-redux';
+```

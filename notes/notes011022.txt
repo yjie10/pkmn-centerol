@@ -199,3 +199,35 @@ const mapDispatchToProps = ({
 - after passing in the second argument, we no longer need constructor with this.state;
 
 - setState code will be replaced with setCurrentUser action code. 
+
+
+<hr />
+
+
+# User Redirect and User Action Type
+- we want to redirect user once they are signed in and they should not have 
+  access to the sign in page anymore.
+
+- need 2 things: 1) *Redirect* component from react router and 2) need currentUser from Redux state;
+
+Code #1:
+```
+  <Route path='/signin' component={SignInSignUpPage} /> // current code
+
+  ->
+
+  // instead of component, we are going to use render; 
+  // by using render, it will return some JS code
+```
+
+- check if user is signed in, if so we will redirect the user to the home page,
+  if not we render <SignInSignUpPage/>;
+
+- another modification to be made is to the actions; right now 
+  the action and in the reducer are all hard coded. To avoid typos, 
+  a new file user.types is created to store the userActionTypes which 
+  is then imported into reducer and action;
+
+
+
+

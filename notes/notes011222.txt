@@ -6,3 +6,8 @@
   Lectures Covered:
 
 */
+
+# Cart Component
+- svg for cart icon. 
+
+- need a *CartIcon* component that represents both the icon and the number (in the shopping cart).

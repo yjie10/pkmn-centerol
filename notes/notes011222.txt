@@ -4,6 +4,8 @@
 
 /* 
   Lectures Covered:
+  Cart Component
+
 
 */
 
@@ -11,3 +13,35 @@
 - svg for cart icon. 
 
 - need a *CartIcon* component that represents both the icon and the number (in the shopping cart).
+
+- afterwards, import it into *Header*. 
+
+
+<hr />
+
+
+# Cart Dropdown Component
+- there's a container, items that are scrollable, and a checkout button. 
+
+- we need a *Cart* component.
+
+- (Styling) margin-top auto will ensure the button is always at the bottom. 
+
+Code #1: 
+```
+  button {
+    margin-top: auto;
+  }
+```
+
+- *CartDropdown* should sit out of the options div. 
+
+- (Styling) z-index to ensure the *CartDropdown* is on the top layer and not hiding under other components.
+
+Code #2: 
+```
+  z-index: 5;
+```
+
+- going to set a reducer to conditionally show or hide the cart, 
+  based on clicking of the icon. 

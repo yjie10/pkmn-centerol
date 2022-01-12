@@ -5,8 +5,8 @@
 /* 
   Lectures Covered:
   Cart Component
-
-
+  Cart Dropdown Component
+  Implementing Redux In Cart
 */
 
 # Cart Component
@@ -45,3 +45,36 @@ Code #2:
 
 - going to set a reducer to conditionally show or hide the cart, 
   based on clicking of the icon. 
+
+
+<hr />
+
+
+# Implementing Redux In Cart
+- what could be done is to implement the feature of hide or show cart
+  within *Header* component since both of the *CartIcon* and *CartDropdown*
+  are in *Header*. However, the reason to put it in global redux state
+  is that we might want to trigger show/hide *CartDropdown* in another component,
+  not only limited to *Header*. 
+
+- steps will be similar to user. 
+
+Code #1:
+```
+const INITIAL_STATE = {
+  hidden: true // default dropdown should be hidden
+}
+```
+
+- we do not need a payload as we are just toggling the cart-icon and
+  not setting anything. 
+
+
+Code #2:
+```
+// original Header component
+const mapStateToProps = (state) => (
+  {
+    currentUser: state.user.currentUser
+  })
+```

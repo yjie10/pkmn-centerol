@@ -1,0 +1,30 @@
+// notes for self-use 01.13.22
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+
+*/
+
+Building: 
+- Each item has a hover effect 'ADD TO CART' when hovered on the item. 
+
+- Once 'ADD TO CART' is clicked, it will add the item to the cart, 
+  > New item to the cart with quantity 1, 
+  > Existing item increasing the count
+
+- New and existing item will be shown in both the *CartDropdown*
+  and the CheckOut Page (not yet build). 
+
+- First set up *CollectionItem* to have the hover effect, and then
+  the redux to store cart items.
+
+# Add To Cart Styling
+- similar to google sign in, go to *CustomButton* and add the property inverted to
+  invert the colors for when hovered on item. 
+
+- add inverted to *CustomButton* and applied the styling. 
+
+- making custom changes to custom button in the *CollectionItem* styling sheet (hover effect, display).
+

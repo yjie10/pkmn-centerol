@@ -69,6 +69,9 @@ const INITIAL_STATE = {
 - we do not need a payload as we are just toggling the cart-icon and
   not setting anything. 
 
+- after importing the action into *CartIcon*, we also bring the state into 
+  *Header* and selectively render *CartDropdown*, if hidden is true, hide, 
+  if false, show. 
 
 Code #2:
 ```
@@ -76,5 +79,13 @@ Code #2:
 const mapStateToProps = (state) => (
   {
     currentUser: state.user.currentUser
+  })
+
+
+// destructure nested
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => (
+  {
+    currentUser,
+    hidden
   })
 ```

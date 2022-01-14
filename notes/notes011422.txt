@@ -1,0 +1,64 @@
+// notes for self-use 01.14.22
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+
+*/
+
+01.13.22 Summary: 
+- cart action: Add Item to Cart and bring it in to *CollectionItem*
+
+···
+
+# Adding Multiple Items To Cart
+Overview: 
+·· tl;dr: Group Items with quantity property
+· right now when action ADD_ITEM is performed, the cart allows duplicate items to be added;
+· we want to increase the quantity of the item when existing item is being added again,
+  and only add new item if it doesn't already exist;
+---
+
+- create an utility function under cart -> cart.utils.js
+
+- utility functions allow us to keep our files clean and organzie functions
+  that we may need in multiple files in one location. 
+
+- write the 'addItem' with two arguments, 
+  first: existing cart items, 
+  second: cart item we want to add
+
+- we will check the existing cartItem to see if the 
+  +cartItemToAdd+ already exists
+
+Code #1:
+/* note: lecture video have the function name as 
+  addItemToCart, but I want to keep the function names consistent
+  and therefore will use the same 'addItem' as the action name;
+*/
+```
+export const addItem = (cartItems, cartItemToAdd) => ...
+```
+
+- after creating the function, we import it to our +cart reducer+
+
+Code #2:
+```
+// replace cartItems: [...state.cartItems, action.payload]
+  case CartActionTypes.ADD_ITEM:
+    return {
+      ...state,
+      cartItems: [...state.cartItems, action.payload]
+    }
+
+// with 
+  return {
+    ...state,
+    cartItems: addItem(...state.cartItems, action.payload)
+  }
+
+```
+
+- one more modification: some items in shop data have the same id, 
+  need to update them so each item have a unique id (important)

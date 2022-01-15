@@ -62,3 +62,16 @@ Code #2:
 
 - one more modification: some items in shop data have the same id, 
   need to update them so each item have a unique id (important)
+
+
+<hr />
+
+
+# Cart Item Component
+Overview:
+· create cart-item component
+---
+
+- after creating the functional *CartItem*, we need to import it into *CartDropdown*
+
+- as we need access to the +item+ properties, we will pull it off from redux

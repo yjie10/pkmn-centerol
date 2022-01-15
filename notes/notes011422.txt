@@ -4,7 +4,8 @@
 
 /* 
   Lectures Covered:
-
+  Adding Multiple Items To Cart
+  Cart Item Component
 */
 
 01.13.22 Summary: 
@@ -74,4 +75,30 @@ Overview:
 
 - after creating the functional *CartItem*, we need to import it into *CartDropdown*
 
-- as we need access to the +item+ properties, we will pull it off from redux
+- as we need access to the +item+ properties, we will pull it off from redux state
+
+// minor changes to displaying the name in *CartItem*
+```
+  <span className='name'>{name.length < 25 ? name : `${name.slice(0, 25)}...`}</span>
+```
+
+
+<hr />
+
+
+
+
+////// 明天再看
+# Selectors In Redux
+Overview:
+· update the counter in our *CartIcon* (shopping cart)
+---
+
+- 
+
+```
+// CartIcon 
+const mapStateToProps = ({ cart: cartItems }) => ({
+  itemCount: cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity, 0)
+})
+```

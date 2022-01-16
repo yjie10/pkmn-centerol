@@ -6,7 +6,7 @@ __: Highlight
 /* 
   Lectures Covered:
   Selectors in Redux
- 
+  Reselect Library
 */
 
 01.14.22 Summary: 
@@ -120,3 +120,58 @@ Overview:
     cartItems: selectCartItems(state)
   })
   ```
+
+
+<hr />
+
+
+# User Selectors
+Overview:
+· now that we wrote cart selectors, update user as well
+---
+
+- 自己先写：create new file under redux-user folder
+  (↓ Code ↓)
+
+```
+// input selector
+const selectUser = state => state.user;
+
+export const selectCurrentUser = createSelector(
+  [selectUser],
+  (user) => user.currentUser
+); 
+```
+
+- bringing in the selector into: *Header* and *App*
+
+- also make a selector for +hidden+
+
+  ```
+  const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => 
+  ({
+    currentUser,
+    hidden
+  })
+
+  →
+
+  const mapStateToProps = (state) => (
+  {
+    currentUser: selectCurrentUser(state),
+    hidden: selectCartHidden(state)
+  })
+  ```
+
+- also bringing in +createStuctureSelector+, so above code becomes: 
+  (↓ Code ↓)
+
+  ```
+  const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+    hidden: selectCartHidden
+    })
+  ```
+
+- same thing will be done in *App.js* and other components as well in case in the future
+  we are bringing in more selectors

@@ -17,7 +17,7 @@ __: Highlight
 
 # Selectors In Redux
 Overview:
-· displaying number of items in the cart
+· we want to display number of items in the cart
 · update the counter in our *CartIcon* (shopping cart)
 ---
 
@@ -55,3 +55,60 @@ const mapStateToProps = ({ cart: cartItems }) => ({
   if our value didn't change, we don't want to re-render our component -- this is called _MEMOIZATION_
 
 - we can achieve this kind of +memoization+ using a library called +Reselect+
+
+
+<hr />
+
+
+# Reselect Library
+Overview:
+· bringing in +reselect+ library
+· use the library to write memoized selectors
+---
+
+- change up folder structure: create a new file called +cart.selectors.js+ under 
+  the cart redux folder (in case we want to use the selector code somewhere else)
+
+- notes on selectors:
+  > there are two types of selectors we can write,
+    1. input selector: that doesn't use +createSelctor+,
+    2. out selector: that DOES use +createSelctor+ _and_ +input selector+
+
+- +Input Selector+:
+  > a function that gets the whole state and just returns a slice of it (one layer deep usually)
+  (↓ Code ↓)
+
+  ```
+  const selectCart = state => state.cart;
+  ```
+
+- +Output Selector+: 
+  > takes in two arguments, 
+    1. a collection (array) of input selector, 
+    2. a function that return the value we want out of the selctor
+    (↓ Code ↓)
+
+  // 'CartItems' is a property (state) on our cart
+  ```
+    export const selectCartItems = createSelctor(
+      [selectCart],
+      (cart) => cart.cartItems
+    )
+  ``` // createSelctor -> memoized selector
+
+- we can also use the selector code in other components that uses +cartItems+,
+  e.g. *CartDropdown* (↓ Code ↓)
+
+
+  ```
+  const mapStateToProps = ({ cart: { cartItems } }) => ({
+    cartItems: cartItems
+    })
+
+  →
+
+  // bringing in +selectCartItems+ selector
+  const mapStateToProps = (state) => ({
+    cartItems: selectCartItems(state)
+  })
+  ```

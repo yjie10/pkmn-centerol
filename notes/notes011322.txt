@@ -1,0 +1,117 @@
+// notes for self-use 01.13.22
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+  Add To Cart Styling
+  Cart Item Reducer
+*/
+
+Building: 
+- Each item has a hover effect 'ADD TO CART' when hovered on the item. 
+
+- Once 'ADD TO CART' is clicked, it will add the item to the cart, 
+  > New item to the cart with quantity 1, 
+  > Existing item increasing the count
+
+- New and existing item will be shown in both the *CartDropdown*
+  and the CheckOut Page (not yet build). 
+
+- First set up *CollectionItem* to have the hover effect, and then
+  the redux to store cart items.
+
+# Add To Cart Styling
+- similar to google sign in, go to *CustomButton* and add the property inverted to
+  invert the colors for when hovered on item. 
+
+- add inverted to *CustomButton* and applied the styling. 
+
+- making custom changes to custom button in the *CollectionItem* styling sheet (hover effect, display).
+
+
+<hr />
+
+
+# Cart Item Reducer
+- make the 'ADD TO CART' functionality work. 
+
+Code #1:
+// similar to when setting local state; 
+// new state called cartItems to keep track of items
+```
+const INITIAL_STATE = {
+  hidden: true,
+  cartItems: []
+}
+```
+
+- add item action; 
+
+Code #2:
+// returning the current state object &,
+// spreading current items in the cart and adding the new item
+// (the payload) at the end of the cart;
+```
+case CartActionTypes.ADD_ITEM:
+  return {
+    ...state, 
+    cartItems: [...state.cartItems, action.payload]
+  }
+```
+
+- cart action;
+```
+export const addItem = item => ({
+  type: CartActionTypes.ADD_ITEM,
+  payload: item
+})
+```
+
+- bring it to our component: *CollectionItem*.
+
+
+Code #3:
+```
+...
+    <CustomButton inverted onClick={addItem}>ADD TO CART</CustomButton>
+  </div>
+);
+
+const mapDispatchToProps = dispatch => ({
+  addItem: item => dispatch(addItem(item))
+})
+
+export default connect(null, mapDispatchToProps)(CollectionItem);
+```
+
+- 因为用中文能够解释的比较好所以这里我用中文写。
+  如果我用上面的写法，加进cart里的不会是实际的item而是'SyntheticBaseEvent'（已用logger看过）
+  所以instructor才提到我们得先看哪里用到了这个collection-item（data从哪儿pass过来的）
+  然后追到了*CollectionPreview* 
+
+```
+// collection item
+const CollectionItem = ({ id, name, imageUrl, price, addItem }) => (...)
+
+// collection preview
+      {items
+        .filter((item, index) => index < 4)
+        .map(({ id, ...otherItemProps }) => (
+          <CollectionItem key={id} {...otherItemProps} />
+        ))}
+```
+
+- instead of passing in the props, 把item整个pass进去。
+
+```
+        .filter((item, index) => index < 4)
+        .map((item) => (
+          <CollectionItem key={item.id} item={item} />
+        ))}
+```
+
+// now we have access to the item and can add it to our cart
+```
+  <CustomButton inverted onClick={() => addItem(item)}>ADD TO CART</CustomButton>
+```

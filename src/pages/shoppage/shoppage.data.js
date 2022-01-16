@@ -66,49 +66,49 @@ const SHOP_DATA = [
     routeName: 'figures&pins',
     items: [
       {
-        id: 1,
+        id: 10,
         name: 'Gastly, Haunter & Gengar Pixel Pins',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7185/710-08471/P7185_710-08471_01.jpg',
         price: 18.99
       },
       {
-        id: 2,
+        id: 11,
         name: 'Eevee, Vaporeon, Jolteon & Flareon Pixel Pins',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7185/710-08463/P7185_710-08463_01.jpg',
         price: 24.99
       },
       {
-        id: 3,
+        id: 12,
         name: 'Pokémon Holiday Joy Pins',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7922/710-29362/P7922_710-29362_01.jpg',
         price: 19.99
       },
       {
-        id: 4,
+        id: 13,
         name: 'Gallery Figure: Scorbunny',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P5417/703-05404/P5417_703-05404_01.jpg',
         price: 14.99
       },
       {
-        id: 5,
+        id: 14,
         name: 'Ditto Pixel Pin',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7185/710-08465/P7185_710-08465_01.jpg',
         price: 7.99
       },
       {
-        id: 6,
+        id: 15,
         name: 'Vulpix & Ninetales Pins',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P4526/710-03523/P4526_710-03523_01.jpg',
         price: 12.99
       },
       {
-        id: 7,
+        id: 16,
         name: 'Feasting with Friends Pin',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P6235/710-05997/P6235_710-05997_01.jpg',
         price: 9.99
       },
       {
-        id: 8,
+        id: 17,
         name: 'Pokémon Celebration Parade: Melody of Celebration Figure',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7387/710-08887/P7387_710-08887_01.jpg',
         price: 200
@@ -121,31 +121,31 @@ const SHOP_DATA = [
     routeName: 'game',
     items: [
       {
-        id: 1,
+        id: 18,
         name: 'Pokémon Legends: Arceus',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P8179/716-29910/P8179_716-29910_01.jpg',
         price: 59.99
       },
       {
-        id: 2,
+        id: 19,
         name: 'Pokémon Shield + Expansion Pass',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7480/716-59721/P7480_716-59721_01.jpg',
         price: 89.99
       },
       {
-        id: 3,
+        id: 20,
         name: 'Pokémon Brilliant Diamond & Pokémon Shining Pearl Double Pack',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P8180/716-29907/P8180_716-29907_01.jpg',
         price: 119.98
       },
       {
-        id: 4,
+        id: 21,
         name: 'Sinnoh Champion Team Protection Case for Nintendo Switch',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7909/710-29533/P7909_710-29533_01.jpg',
         price: 19.99
       },
       {
-        id: 5,
+        id: 22,
         name: 'Pokémon Sword & Pokémon Shield: The Official Galar Region Strategy Guide',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P6523/707-38204/P6523_707-38204_02.jpg',
         price: 24.99
@@ -158,43 +158,43 @@ const SHOP_DATA = [
     routeName: 'apparel',
     items: [
       {
-        id: 1,
+        id: 23,
         name: 'Mimikyu Hat',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7479/741-08995/P7479_741-08995_01.jpg',
         price: 22.99
       },
       {
-        id: 2,
+        id: 24,
         name: 'Pokémon Mood Collection: Pikachu Angry Fitted Crew Neck T-Shirt - Adult',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7457/741-09262/P7457_741-09262_01.jpg',
         price: 24.99
       },
       {
-        id: 3,
+        id: 25,
         name: 'Mimikyu Themed French Terry Zip-Up Hoodie - Adult',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P6984/741-08265/P6984_741-08265_01.jpg',
         price: 54.99
       },
       {
-        id: 4,
+        id: 26,
         name: 'Magikarp Hat',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7479/741-08996/P7479_741-08996_01.jpg',
         price: 80
       },
       {
-        id: 5,
+        id: 27,
         name: 'Yamper Gray Fitted Zip-Up Hoodie - Adult',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P6598/741-06772/P6598_741-06772_01.jpg',
         price: 49.99
       },
       {
-        id: 6,
+        id: 28,
         name: 'Pikachu Holiday Lights Knit Sweater - Adult',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7623/741-09449/P7623_741-09449_01.jpg',
         price: 44.99
       },
       {
-        id: 7,
+        id: 29,
         name: 'Gengar Themed French Terry Zip-Up Hoodie - Adult',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P6984/741-08277/P6984_741-08277_01.jpg',
         price: 54.99
@@ -207,37 +207,37 @@ const SHOP_DATA = [
     routeName: 'accessories',
     items: [
       {
-        id: 1,
+        id: 30,
         name: 'Pokémon Center × RockLove: Espeon Pendant Necklace',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7132/710-08438/P7132_710-08438_08.jpg',
         price: 99.99
       },
       {
-        id: 2,
+        id: 31,
         name: 'Pikachu & Eevee Tails: Running Pikachu Ring',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P6363/710-06633/P6363_710-06633_01.jpg',
         price: 119.99
       },
       {
-        id: 3,
+        id: 32,
         name: 'Pokémon Center × RockLove: Lapras Sterling Silver Necklace',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7765/710-29528/P7765_710-29528_04.jpg',
         price: 99.99
       },
       {
-        id: 4,
+        id: 33,
         name: 'Pokémon Center × RockLove: Master Ball Locket Necklace',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7132/710-08440/P7132_710-08440_06.jpg',
         price: 64.99
       },
       {
-        id: 5,
+        id: 34,
         name: 'Pokémon Center × RockLove: Mimikyu Pendant Necklace',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7132/710-08439/P7132_710-08439_08.jpg',
         price: 99.99
       },
       {
-        id: 6,
+        id: 35,
         name: 'Pokémon Center × RockLove: Gengar Earrings',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7132/710-08435/P7132_710-08435_04.jpg',
         price: 84.99
@@ -251,37 +251,37 @@ const SHOP_DATA = [
     routeName: 'stationery',
     items: [
       {
-        id: 1,
+        id: 36,
         name: 'Pokémon Home Accents Desk Organizer',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7362/710-08895/P7362_710-08895_01.jpg',
         price: 24.99
       },
       {
-        id: 2,
+        id: 37,
         name: 'Pikachu Spiral Notebook (200 Pages)',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P1090/710-01101/P1090_710-01101_01.jpg',
         price: 19.99
       },
       {
-        id: 3,
+        id: 38,
         name: 'Espurr & Meowstic Wanted Notecard Set (12 cards, envelopes, and seals)',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P1092/710-01243/P1092_710-01243_01.jpg',
         price: 17.99
       },
       {
-        id: 4,
+        id: 39,
         name: 'Graduation Pikachu 2020 Invitation Cards (10-Pack)',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P6368/710-06173/P6368_710-06173_02.jpg',
         price: 9.99
       },
       {
-        id: 5,
+        id: 40,
         name: 'Pokémon TCG: Ditto As D-Ring Binder - 1 In.',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P3543/705-03161/P3543_705-03161_01.jpg',
         price: 35.99
       },
       {
-        id: 6,
+        id: 41,
         name: 'Pilot × Pokémon: Pikachu Sterling Fountain Pen',
         imageUrl: 'https://www.pokemoncenter.com/products/images/P7275/710-08745/P7275_710-08745_02.jpg',
         price: 14.99

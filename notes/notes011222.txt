@@ -1,0 +1,91 @@
+// notes for self-use 01.12.22
+**: Referring to Components
+++: Referring to some key terms
+
+/* 
+  Lectures Covered:
+  Cart Component
+  Cart Dropdown Component
+  Implementing Redux In Cart
+*/
+
+# Cart Component
+- svg for cart icon. 
+
+- need a *CartIcon* component that represents both the icon and the number (in the shopping cart).
+
+- afterwards, import it into *Header*. 
+
+
+<hr />
+
+
+# Cart Dropdown Component
+- there's a container, items that are scrollable, and a checkout button. 
+
+- we need a *Cart* component.
+
+- (Styling) margin-top auto will ensure the button is always at the bottom. 
+
+Code #1: 
+```
+  button {
+    margin-top: auto;
+  }
+```
+
+- *CartDropdown* should sit out of the options div. 
+
+- (Styling) z-index to ensure the *CartDropdown* is on the top layer and not hiding under other components.
+
+Code #2: 
+```
+  z-index: 5;
+```
+
+- going to set a reducer to conditionally show or hide the cart, 
+  based on clicking of the icon. 
+
+
+<hr />
+
+
+# Implementing Redux In Cart
+- what could be done is to implement the feature of hide or show cart
+  within *Header* component since both of the *CartIcon* and *CartDropdown*
+  are in *Header*. However, the reason to put it in global redux state
+  is that we might want to trigger show/hide *CartDropdown* in another component,
+  not only limited to *Header*. 
+
+- steps will be similar to user. 
+
+Code #1:
+```
+const INITIAL_STATE = {
+  hidden: true // default dropdown should be hidden
+}
+```
+
+- we do not need a payload as we are just toggling the cart-icon and
+  not setting anything. 
+
+- after importing the action into *CartIcon*, we also bring the state into 
+  *Header* and selectively render *CartDropdown*, if hidden is true, hide, 
+  if false, show. 
+
+Code #2:
+```
+// original Header component
+const mapStateToProps = (state) => (
+  {
+    currentUser: state.user.currentUser
+  })
+
+
+// destructure nested
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => (
+  {
+    currentUser,
+    hidden
+  })
+```

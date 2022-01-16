@@ -84,21 +84,3 @@ Overview:
 
 
 <hr />
-
-
-
-
-////// 明天再看
-# Selectors In Redux
-Overview:
-· update the counter in our *CartIcon* (shopping cart)
----
-
-- 
-
-```
-// CartIcon 
-const mapStateToProps = ({ cart: cartItems }) => ({
-  itemCount: cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity, 0)
-})
-```

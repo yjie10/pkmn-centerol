@@ -1,0 +1,57 @@
+// notes for self-use 01.15.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+  Selectors in Redux
+ 
+*/
+
+01.14.22 Summary: 
+- grouping items in cart (giving it a quantity property) using cart util function. 
+- created *CartItem* component. 
+
+···
+
+# Selectors In Redux
+Overview:
+· displaying number of items in the cart
+· update the counter in our *CartIcon* (shopping cart)
+---
+
+- using what we know of redux, something we can do is write a 
+  +mapStateToProps+ inside *CartIcon* where we would pull the state in, and then get the 
+  value (↓ code below ↓)
+
+```
+// CartIcon 
+const mapStateToProps = ({ cart: cartItems }) => ({
+  itemCount: cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity, 0) // 0 is the initial value
+  // const reducer = (previousValue, currentValue) => previousValue + currentValue; 
+})
+```
+// reduce: executes a user-supplied "reducer" callback function on each element of the array... 
+// the final result of running the reducer across all elements of the array is a single value (MDN Web Docs)
+
+- the above code is called +Selector+, because we are passing in the whole state
+  but only using a small portion of the state -- we are computing a new value based off the state
+
+- the caveat (warning / limitations) though, is that whenever _any_ +reducer+ updates,
+  we always return a new object, and when this happens, Redux re-composes and re-builds the 
+  _entire_ state object, +mapStateToProps+ is getting called every single time -- component always gets re-rendered
+
+- 接上，也就是说当不是cart的reducer being called时 (e.g. user reducer being called)，
+  the +mapStateToProps+ inside *CartIcon* is also called; 
+
+- and this is important because the .reduce() function written for accumalating itemCount
+  is returning a new value (re-computing) every time +mapStateToProps+ is called, even if the value doesn't update
+  (and this is because every time the state updates, it's a _BRAND NEW_ object, even if the value are the same)
+
+- 综上所述，会影响到performance
+
+- so what we want to do is to store/cache the value of what our +selector+ is using;
+  if our value didn't change, we don't want to re-render our component -- this is called _MEMOIZATION_
+
+- we can achieve this kind of +memoization+ using a library called +Reselect+

@@ -9,3 +9,34 @@ __: Highlight
 
 01.15.22 Summary: 
 - 
+
+···
+
+# Checkout Page
+Overview: 
+· finish building *CartDropdown*, it should display a message if the cart is empty
+· link to *CheckoutPage* when the "Go to Checkout" button is clicked
+
+- in our *CartDropdown*, will conditionally render the "empty message" depending on if the cart is empty or not
+  (↓ Code ↓)
+
+```
+      {
+        cartItems.length ?
+          cartItems.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />) :
+          <span>The Cart is Empty</span>
+      }
+```
+
+- type coercion notes: in JS, 6 things that will be evaluated to false
+  > 1. 0
+  > 2. false
+  > 3. undefined
+  > 4. null
+  > 5. NaN
+  > 6. "" (empty string)
+
+- Checkout Page: create the page component and import it into App.js
+
+- import +withRouter+ into *CartDropdown* and wrap the connect function inside +withRouter+;
+  the order does matter, we want what comes out of the +connect+ component to receive the props

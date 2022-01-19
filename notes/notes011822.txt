@@ -8,6 +8,7 @@ __: Highlight
   Checkout Page
   Checkout Page 2
   Extensible Code (quick explanation on writing simple and reusable code)
+  Dispatch Action Shorthand
 */
 
 01.15.22 Summary: 
@@ -61,3 +62,12 @@ Styling:
         <span>{cartItem.price * cartItem.quantity}</span>
       </div>)}
   ```
+
+
+<hr />
+
+
+# Dispatch Action Shorthand
+- 大概了解了，就如果只是一个action不用set什么就可以用这个shorthand, 不用特意写
+  mapDispatchToProps;
+- 我的疑问是既然这样为什么*CartIcon*不也用这个shorthand呢……我试过了，it works. 之后再看看好了。

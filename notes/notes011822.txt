@@ -5,6 +5,9 @@ __: Highlight
 
 /* 
   Lectures Covered:
+  Checkout Page
+  Checkout Page 2
+  Extensible Code (quick explanation on writing simple and reusable code)
 */
 
 01.15.22 Summary: 

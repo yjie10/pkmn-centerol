@@ -40,3 +40,21 @@ Overview:
 
 - import +withRouter+ into *CartDropdown* and wrap the connect function inside +withRouter+;
   the order does matter, we want what comes out of the +connect+ component to receive the props
+
+Styling:
+- Checkout Page: 
+  Product / Quantity / Price & Total; 
+  > Remove will be next to the item description
+
+- bring in everything we need for *CheckoutPage*
+
+- need to create another selector for adding the price together to create a total price
+
+- 我想display individual item quanity x price然后我以为要写selector，然后发现自己想多了。
+  (↓ Code ↓) 大概如下就okay. 
+  ```
+      {cartItems.map(cartItem =>
+      <div>{cartItem.name}
+        <span>{cartItem.price * cartItem.quantity}</span>
+      </div>)}
+  ```

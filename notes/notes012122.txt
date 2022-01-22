@@ -6,6 +6,8 @@ __: Highlight
 /* 
   Lectures Covered:
   Checkout Item Component
+  Remove Items From Cart
+  Remove Items At Checkout
 */
 
 

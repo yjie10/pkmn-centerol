@@ -23,3 +23,11 @@ __: Highlight
     <button className='remove-button'>Remove <span class='remove-icon'>&#10006;</span></button>
   </span>
 ```
+
+#
+
+```
+export const removeItem = (cartItems, cartItemToRemove) => {
+  return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
+}
+```

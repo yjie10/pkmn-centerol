@@ -11,3 +11,7 @@ export const addItem = (cartItems, cartItemToAdd) => {
   // otherwise, we add the item to the cart and give it a base quantity of 1
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 }
+
+export const removeItem = (cartItems, cartItemToRemove) => {
+  return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
+}

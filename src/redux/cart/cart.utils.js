@@ -11,3 +11,17 @@ export const addItem = (cartItems, cartItemToAdd) => {
   // otherwise, we add the item to the cart and give it a base quantity of 1
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 }
+
+// removes the item when the 'remove item' button is clicked
+export const removeItem = (cartItems, cartItemToRemove) => {
+  return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
+}
+
+// reduce item if quantity > 1
+export const reduceItem = (cartItems, cartItemToReduce) => {
+  if (cartItemToReduce.quantity > 1) {
+    return cartItems.map(cartItem => cartItem.id === cartItemToReduce.id ?
+      { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem)
+  }
+  return cartItems;
+}

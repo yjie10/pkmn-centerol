@@ -1,0 +1,41 @@
+// notes for self-use 01.21.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+  Checkout Item Component
+*/
+
+
+# Checkout Item Component
+· build the *CheckoutItem* component to be used in *CheckoutPage*
+· will need to use +cartItems+ stored in state
+---
+
+- functional component containing the name of the product, the quantity,
+  price and total of single item (quantity x price)
+
+```
+  <span className='product'>
+    {name}
+    <button className='remove-button'>Remove <span class='remove-icon'>&#10006;</span></button>
+  </span>
+```
+
+# Remove Items From Cart
+
+```
+export const removeItem = (cartItems, cartItemToRemove) => {
+  return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
+}
+```
+
+# Remove Items At Checkout (increase / decrease item quantity)
+- the user should be able to add / decrease item at checkout
+- clicking the right arrow will increase the quantity of the item, and the
+  functionality is the same with +addItem+, which we can use
+- clicking the decrease arrow will decrease the quantity of the item, 
+  and when the item quantity is 1, the arrow will be disabled and quantity
+  shouldn't decrease anymore (to remove the item, use the remove button)

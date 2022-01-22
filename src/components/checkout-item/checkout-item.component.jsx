@@ -7,7 +7,6 @@ import './checkout-item.styles.scss';
 
 const CheckoutItem = ({ cartItem, removeItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
-  console.log(cartItem);
 
   return (
     <div className='checkout-item'>
@@ -23,8 +22,8 @@ const CheckoutItem = ({ cartItem, removeItem }) => {
       </span>
 
       <span className='quantity'>{quantity}</span>
-      <span className='price'>{price}</span>
-      <span className='total'>{price * quantity}</span>
+      <span className='price'>${price}</span>
+      <span className='total'>${(price * quantity).toFixed(2)}</span>
     </div>)
 }
 
@@ -33,4 +32,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(null, mapDispatchToProps)(CheckoutItem);
-// export default CheckoutItem;

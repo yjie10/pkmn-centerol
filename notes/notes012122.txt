@@ -1,0 +1,14 @@
+// notes for self-use 01.21.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+
+*/
+
+
+# Checkout Item Component
+· will need to use +cartItems+ stored in state
+

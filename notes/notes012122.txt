@@ -5,10 +5,21 @@ __: Highlight
 
 /* 
   Lectures Covered:
-
+  Checkout Item Component
 */
 
 
 # Checkout Item Component
+· build the *CheckoutItem* component to be used in *CheckoutPage*
 · will need to use +cartItems+ stored in state
+---
 
+- functional component containing the name of the product, the quantity,
+  price and total of single item (quantity x price)
+
+```
+  <span className='product'>
+    {name}
+    <button className='remove-button'>Remove <span class='remove-icon'>&#10006;</span></button>
+  </span>
+```

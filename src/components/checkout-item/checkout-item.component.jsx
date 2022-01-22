@@ -22,10 +22,11 @@ const CheckoutItem = ({ cartItem, removeItem, addItem, reduceItem }) => {
       </span>
 
       <span className='quantity'>
-        <span className={`${quantity > 1 ? '' : 'last-item'} left-arrow`} onClick={() => reduceItem(cartItem)}>&#10094;</span>
-        {quantity}
-        <span className='right-arrow' onClick={() => addItem(cartItem)}>&#10095;</span>
+        <div className={`${quantity > 1 ? '' : 'last-item'} left-arrow`} onClick={() => reduceItem(cartItem)}>&#10094;</div>
+        <span className='value'>{quantity}</span>
+        <div className='right-arrow' onClick={() => addItem(cartItem)}>&#10095;</div>
       </span>
+
       <span className='price'>${price}</span>
       <span className='total'>${(price * quantity).toFixed(2)}</span>
     </div>)

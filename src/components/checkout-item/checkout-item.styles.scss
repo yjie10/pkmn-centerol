@@ -4,8 +4,10 @@
   display: flex;
   border-bottom: 1px solid darkgrey;
   padding: 15px 0;
-  font-size: 18px;
+  font-size: 17px;
   align-items: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
   .image-container {
     width: 25%;
@@ -18,7 +20,7 @@
   }
 
   .product {
-    width: 30%;
+    width: 25%;
   }
 
   .remove-button {
@@ -41,14 +43,27 @@
     width: 25%;
   }
 
-  .left-arrow,
-  .right-arrow {
-    padding: 0 10px;
-    cursor: pointer;
+  .total {
+    min-width: 10%;
   }
 
-  .last-item {
-    color: grey;
-    cursor: default;
+  .quantity {
+    display: flex;
+
+    .left-arrow,
+    .right-arrow {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .last-item {
+      color: grey;
+      cursor: default;
+    }
+
+    .value {
+      margin: 0 12px;
+      min-width: 5%;
+    }
   }
 }

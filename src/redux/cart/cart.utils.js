@@ -17,18 +17,11 @@ export const removeItem = (cartItems, cartItemToRemove) => {
   return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
 }
 
-// 不知道有没有写对。。。
+// reduce item if quantity > 1
 export const reduceItem = (cartItems, cartItemToReduce) => {
-  // return cartItems.map(cartItem => cartItem.id === cartItemToReduce.id ?
-  //   (cartItemToReduce.quantity > 1 ? cartItemToReduce.quantity - 1 : cartItem)
-  //   : cartItem)
-
   if (cartItemToReduce.quantity > 1) {
     return cartItems.map(cartItem => cartItem.id === cartItemToReduce.id ?
       { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem)
   }
-
   return cartItems;
-
-
 }

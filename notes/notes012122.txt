@@ -33,3 +33,9 @@ export const removeItem = (cartItems, cartItemToRemove) => {
 ```
 
 # Remove Items At Checkout (increase / decrease item quantity)
+- the user should be able to add / decrease item at checkout
+- clicking the right arrow will increase the quantity of the item, and the
+  functionality is the same with +addItem+, which we can use
+- clicking the decrease arrow will decrease the quantity of the item, 
+  and when the item quantity is 1, the arrow will be disabled and quantity
+  shouldn't decrease anymore (to remove the item, use the remove button)

@@ -31,3 +31,5 @@ export const removeItem = (cartItems, cartItemToRemove) => {
   return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
 }
 ```
+
+# Remove Items At Checkout (increase / decrease item quantity)

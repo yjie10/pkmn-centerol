@@ -1,0 +1,91 @@
+// notes for self-use 01.21.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+  Checkout Item Component
+  Remove Items From Cart
+  Remove Items At Checkout
+*/
+
+01.21.22 Summary: 
+- Created *CheckoutItem* component. 
+- Added 'remove item', 'reduce item' functionality in Redux (redux action / utils). 
+- Imported the action to *CheckoutItem* component: 
+  > increase item quantity: ADD_ITEM
+  > decrease item quantity: REDUCE_ITEM
+  > remove item from cart: REMOVE_ITEM
+
+···
+
+01.22.22 Overview:
+- Local Storage / Session Storage notes
+
+···
+
+# Local Storage and Session Storage
+Overview:
+· Problem: if the user refreshes the page, everything in store will be gone -- reducers gets reset. 
+· User is not being reset because the state is not stored by the application, it's handled by firebase auth,
+  which comes with session persistence. 
+
+---
+
+- Redux Persist allow us to store session using local storage
+- Notes on local storage:
+  > window.localStorage vs window.sessionStorage
+    · session storage is within the session, which if the tab remains open,
+      it will be stored; if the tab is closed, the we lose the data
+    · localStorage will persist until we clear it out
+  > localStorage has a getItem and setItem - stores string only
+
+  ```
+  const objToStore = { description: 'some object' }
+  // first param: key
+  window.localStorage.setItem('myObj', JSON.stringfy(objToStore)) // to store; converting the obj to string
+  window.localStorage.getItem('myObj') // to access, will return a string
+  
+  const objToRetrive = window.localStorage.getItem('myObj);
+  JSON.parse(objToRetrive) // to convert back to Object
+  ```
+
+
+<hr />
+
+
+# Redux Persist
+Overview:
+· Bringing in redux persist into the Application. 
+
+- the redux persist library leverages both local and session storage
+- have some config need to do: 
+  > 1. go to store.js, bring in { persistStore } from 'redux-persist';
+       it allows the browser to actually cache our store (depending on our config)
+  > 2. const persistor = persistStore(store); // essentially a persisted version of our store;
+       instead of export default only store, change it to export default { store, persistor }
+  > 3. update root reducer, import { persistReducer } from 'redux-persist';
+       and also import in the type of storage (local / session) we want;
+       import storage from 'redux-persist/lib/storage'; // default using local storage
+       alternatively sessionStorage
+  > 4. define config _object_;
+       no need to persist user reducer because it is being handled by firebase auth
+  ```
+  const persistConfig = {
+  key: 'root', // where in our reducer do we want to start storing everything
+  storage, // pass storage, which is storage (which was imported in earlier)
+  whitelist: ['cart'] // an array containing the reducers we want to store
+  ```
+
+  > 5. assign a name to the combineReducer (before was just export default)
+  ```
+  const rootReducer = combineReducers({
+  user: userReducer,
+  cart: cartReducer
+});
+  ```
+
+  > 6. exporting out: export default persistReducer(persistConfig, rootReducer);
+       exporting out the modified version of the rootReducer with the persistConfig on top of it
+  > 7. go to index.js, bring in persistor

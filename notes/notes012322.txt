@@ -1,0 +1,56 @@
+// notes for self-use 01.23.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+
+*/
+
+01.22.22 Summary: 
+- Notes on +local storage+ and +session storage+
+  > local storage: remains in storage after item is cleared manually
+  > session storage: loses everything after the tab is closed
+- Added +Redux Persist+ into application to store the cart items using +local storage+
+
+···
+
+01.23.22 Overview:
+
+
+···
+
+# Directory State Into Redux
+Overview: 
+- move the 'sections' stored in *Directory* into Redux Store
+- move 'shop data'
+
+---
+
+- perhaps the data could be used in mutiple components
+  e.g.: if current display does not really compat with mobile, 
+  we can create a component specifically for mobile view and pull in the same data
+
+- same thing with the shop data, same reason as above
+
+- category page is not yet built, we will want to use the same shop data when the pages are built
+
+- start with directory first, create a directory folder under redux
+
+- question is: is it worth to export out one time, immutable data; there's a benefit to this:
+  that is, _testing_, which is a very important part of web dev
+
+```
+const directoryReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
+export default directoryReducer;
+``` // need to remember to bring it into root reducer
+
+- now bring the state in from redux, so *Directory* no need to be a
+  class component because it doesn't need local state anymore

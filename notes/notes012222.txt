@@ -1,13 +1,12 @@
-// notes for self-use 01.21.22
+// notes for self-use 01.22.22
 **: Referring to Components
 ++: Referring to some key terms
 __: Highlight
 
 /* 
   Lectures Covered:
-  Checkout Item Component
-  Remove Items From Cart
-  Remove Items At Checkout
+  Local Storage and Session Storage
+  Redux Persist
 */
 
 01.21.22 Summary: 

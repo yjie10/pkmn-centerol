@@ -1,0 +1,28 @@
+// notes for self-use 01.21.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+  Checkout Item Component
+  Remove Items From Cart
+  Remove Items At Checkout
+*/
+
+01.21.22 Summary: 
+- Created *CheckoutItem* component. 
+- Added 'remove item', 'reduce item' functionality in Redux (redux action / utils). 
+- Imported the action to *CheckoutItem* component: 
+  > increase item quantity: ADD_ITEM
+  > decrease item quantity: REDUCE_ITEM
+  > remove item from cart: REMOVE_ITEM
+
+···
+
+01.22.22 Overview:
+
+
+···
+
+# Local Storage and Session Storage

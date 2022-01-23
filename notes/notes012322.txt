@@ -5,7 +5,9 @@ __: Highlight
 
 /* 
   Lectures Covered:
-
+  Directory State Into Redux
+  Collection State Into Redux
+  Collection Overview Component
 */
 
 01.22.22 Summary: 
@@ -69,3 +71,17 @@ export default directoryReducer;
 
 - create shop reducer, and bringing the shop data;
   update root-reducer;
+  update component from class to functional
+
+
+<hr />
+
+
+# Collection Overview Component
+- modify something in redux to be more performant
+
+- building the category pages next
+
+- nested routing in the ShopPage: /shop/plush; 
+
+- first, will move collections.map inside ShopPage into its own component, called *CollectionsOverview*

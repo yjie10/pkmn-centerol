@@ -54,3 +54,18 @@ export default directoryReducer;
 
 - now bring the state in from redux, so *Directory* no need to be a
   class component because it doesn't need local state anymore
+
+- create selector for directory-category
+
+
+<hr />
+
+# Collection State Into Redux
+
+- doing the same thing for the shop data
+
+- notes: usually big data like the shop data is stored on the backend -- will be doing the same thing
+  in a more advanced firebase lesson; so right now, we will be storing it in redux state
+
+- create shop reducer, and bringing the shop data;
+  update root-reducer;

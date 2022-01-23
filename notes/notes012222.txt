@@ -21,8 +21,40 @@ __: Highlight
 ···
 
 01.22.22 Overview:
-
+- Local Storage / Session Storage notes
 
 ···
 
 # Local Storage and Session Storage
+Overview:
+· Problem: if the user refreshes the page, everything in store will be gone -- reducers gets reset. 
+· User is not being reset because the state is not stored by the application, it's handled by firebase auth,
+  which comes with session persistence. 
+
+---
+
+- Redux Persist allow us to store session using local storage
+- Notes on local storage:
+  > window.localStorage vs window.sessionStorage
+    · session storage is within the session, which if the tab remains open,
+      it will be stored; if the tab is closed, the we lose the data
+    · localStorage will persist until we clear it out
+  > localStorage has a getItem and setItem - stores string only
+
+  ```
+  const objToStore = { description: 'some object' }
+  // first param: key
+  window.localStorage.setItem('myObj', JSON.stringfy(objToStore)) // to store; converting the obj to string
+  window.localStorage.getItem('myObj') // to access, will return a string
+  
+  const objToRetrive = window.localStorage.getItem('myObj);
+  JSON.parse(objToRetrive) // to convert back to Object
+  ```
+
+
+<hr />
+
+
+# Redux Persist
+Overview:
+· Bringing in redux persist into the Application. 

@@ -85,3 +85,12 @@ export default directoryReducer;
 - nested routing in the ShopPage: /shop/plush; 
 
 - first, will move collections.map inside ShopPage into its own component, called *CollectionsOverview*
+
+
+<hr />
+
+
+# Nested Routing in Shop Page
+- import { Route } into *ShopPage*
+- instead of rendering just a component, we will render *CollectionsOverview* in a Route
+- create *Category* Page component, and bring it into **ShopPage**

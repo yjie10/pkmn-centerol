@@ -125,6 +125,9 @@ export const selectShopCollection = collectionUrlParam =>
   );
 ```
 
+- need to use the second optional parameter, this is necessary because unlike other selectors, 
+  this selector needs a part of the state depending on the URL parameter. 
+
 ```
 // ownProps
 const mapStateToProps = (state, ownProps) => ({

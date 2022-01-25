@@ -1,0 +1,26 @@
+// notes for self-use 01.25.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+  Data Normalization + Collection Page
+  Data Flow In Our App (讲的更多的是concept, 之后可以revisit)
+*/
+
+# Data Normalization + Collection Page
+
+```
+collections => collections.find(collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam]
+```
+// instead of doing the above, simply do the following after converting the data to object:
+
+```
+ collections => collections[collectionUrlParam]
+``` // no need the COLLECTION_ID_MAP as well
+
+# Data Flow In Our App
+- Now that the selector inside our *CollectionsOverview* won't work anymore because
+  the collections we receive is no longer an array. What can be done is writing another
+  selector to convert the object back to array. 

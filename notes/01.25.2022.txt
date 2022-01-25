@@ -1,0 +1,9 @@
+// notes for self-use 01.25.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+
+*/

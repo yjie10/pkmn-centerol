@@ -7,3 +7,14 @@ __: Highlight
   Lectures Covered:
 
 */
+
+# Data Normalization + Collection Page
+
+```
+collections => collections.find(collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam]
+```
+// instead of doing the above, simply do the following after converting the data to object:
+
+```
+ collections => collections[collectionUrlParam]
+``` // no need the COLLECTION_ID_MAP as well

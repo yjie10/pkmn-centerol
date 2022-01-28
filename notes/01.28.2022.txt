@@ -15,4 +15,8 @@ __: Highlight
 - Need a Stripe account.
 
 # Stripe Integration
-- Devlopers - API keys; Publishable key
+- Devlopers - API keys; Publishable key. 
+- Add the react-stripe-checkout library. 
+- Will be creating a new component for Stripe Checkout. 
+
+- In order for a proper charge to be made, Stripe wants the price in cents. 

@@ -1,0 +1,18 @@
+// notes for self-use 01.28.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+  Data Normalization + Collection Page
+  Data Flow In Our App (讲的更多的是concept, 之后可以revisit)
+*/
+
+
+# Introduction To Stripe
+- Only building the frontend right now. 
+- Need a Stripe account.
+
+# Stripe Integration
+- Devlopers - API keys; Publishable key

@@ -9,6 +9,8 @@ __: Highlight
   Introduction To Stripe
   Stripe Integration
   Finishing Touches + Look Ahead
+
+  Deploying To Heroku
 */
 
 
@@ -31,3 +33,8 @@ __: Highlight
   > Advanced Redux concepts / React Hooks / Context API
   > Advanced Firebase
   > Backend for Stripe
+
+···
+
+# Deploying To Production
+- Heroku CLI. 

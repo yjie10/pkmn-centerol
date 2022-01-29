@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 
+import { ReactComponent as Logo } from '../../assets/google.svg';
+
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 import './sign-in.styles.scss';
@@ -40,7 +42,6 @@ class SignIn extends Component {
     return (
       <div className='sign-in'>
         <h2 className='title'>Sign In</h2>
-        <span>Sign in with your email and password</span>
 
         <form onSubmit={this.handleSubmit}>
           <FormInput name='email' type='email' value={this.state.email} handleChange={this.handleChange} label='Email' required />
@@ -49,7 +50,9 @@ class SignIn extends Component {
           <div className='alt-signin'>
             <span>OR</span>
           </div>
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign In With Google</CustomButton>
+          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            <Logo className='logo' />
+            Sign In With Google</CustomButton>
         </form>
       </div>
     )

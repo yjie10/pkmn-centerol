@@ -8,7 +8,7 @@
   padding: 0 35px;
   color: #fff;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed';
+  // font-family: 'Open Sans Condensed';
   font-weight: bold;
   letter-spacing: 1px;
   font-size: 16px;
@@ -16,11 +16,12 @@
   border: none;
   display: flex;
   justify-content: center;
+  border-radius: 20px;
 
   &:hover {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
+    background-color: #2f2f2f;
+    // color: #000;
+    // border: 1px solid #000;
   }
 
   &.google-sign-in {

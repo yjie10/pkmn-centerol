@@ -49,11 +49,11 @@
 
   .quantity {
     display: flex;
+    user-select: none;
 
     .left-arrow,
     .right-arrow {
       cursor: pointer;
-      user-select: none;
     }
 
     .last-item {

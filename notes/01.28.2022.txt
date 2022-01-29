@@ -1,0 +1,33 @@
+// notes for self-use 01.28.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+  Stripe Payments Part 1:
+  Introduction To Stripe
+  Stripe Integration
+  Finishing Touches + Look Ahead
+*/
+
+
+# Introduction To Stripe
+- Only building the frontend right now. 
+- Need a Stripe account.
+
+# Stripe Integration
+- Devlopers - API keys; Publishable key. 
+- Add the react-stripe-checkout library. 
+- Will be creating a new component for Stripe Checkout. 
+
+- In order for a proper charge to be made, Stripe wants the price in cents. 
+
+# Finishing Touches
+- Updating Title and favicon (already done).
+
+- Looking Ahead:
+  > GraphQL - integrating into application using Apollo. 
+  > Advanced Redux concepts / React Hooks / Context API
+  > Advanced Firebase
+  > Backend for Stripe

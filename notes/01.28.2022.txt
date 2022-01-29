@@ -5,8 +5,10 @@ __: Highlight
 
 /* 
   Lectures Covered:
-  Data Normalization + Collection Page
-  Data Flow In Our App (讲的更多的是concept, 之后可以revisit)
+  Stripe Payments Part 1:
+  Introduction To Stripe
+  Stripe Integration
+  Finishing Touches + Look Ahead
 */
 
 
@@ -20,3 +22,12 @@ __: Highlight
 - Will be creating a new component for Stripe Checkout. 
 
 - In order for a proper charge to be made, Stripe wants the price in cents. 
+
+# Finishing Touches
+- Updating Title and favicon (already done).
+
+- Looking Ahead:
+  > GraphQL - integrating into application using Apollo. 
+  > Advanced Redux concepts / React Hooks / Context API
+  > Advanced Firebase
+  > Backend for Stripe

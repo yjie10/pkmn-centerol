@@ -1,0 +1,28 @@
+
+
+
+
+Library: Styled Components. 
+
+```
+import styled from 'style-components';
+
+// this is a component
+const Text = styled.div`
+  // CSS here
+  color: #000;
+`
+```
+
+- Generate unique classNames for elements. 
+- Reusable (sharing constants). 
+- All selectors are supported. 
+
+```
+const Text = styled.div`
+  // CSS here
+  color: #000;
+  border: ${({isActive})} => isActive ? '1px solid black' : '3px dotted green';
+`
+<Text isActive={true}>I am a component</Text>
+```

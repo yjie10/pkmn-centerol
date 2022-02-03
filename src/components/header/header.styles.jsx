@@ -31,4 +31,9 @@ export const OptionsContainer = styled.div`
 export const OptionLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #f5f5f5;
+    border-radius: 20px;
+  }
 `;

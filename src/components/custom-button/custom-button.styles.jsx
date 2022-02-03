@@ -7,6 +7,11 @@ const buttonStyles = css`
 
   &:hover {
     background-color: #2f2f2f;
+    box-shadow: 3px 3px 5px #e3e3e3;  
+  }
+
+  &:active {
+    background-color: #808080;
   }
 `;
 
@@ -23,12 +28,16 @@ const invertedButtonStyles = css`
 `;
 
 const googleSignInStyles = css`
-  background-color: #4285f4;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
 
   &:hover {
-    background-color: #3578e8;
-    border: none;
+    box-shadow: 3px 3px 5px #d1d1d1;  
+  }
+
+  &:active {
+    background-color: #d9d9d9;
   }
 `;
 
@@ -45,7 +54,6 @@ export const CustomButtonContainer = styled.button`
   height: 50px;
   line-height: 50px;
   padding: 0 35px;
-  text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
   font-size: 16px;

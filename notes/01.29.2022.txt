@@ -1,5 +1,7 @@
-
-
+// notes for self-use 01.29.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
 
 
 Library: Styled Components. 
@@ -26,3 +28,6 @@ const Text = styled.div`
 `
 <Text isActive={true}>I am a component</Text>
 ```
+
+# Thinking About Tradeoffs
+- Is it worth it? (bringing in new library)

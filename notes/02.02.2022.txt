@@ -1,0 +1,37 @@
+// notes for self-use 02.02.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+
+# styled-components In Our App 2 (Header)
+
+- An even more easier way to write is using the 'as' attribute; 
+
+```
+<OptionLink as='div' onClick={() => auth.signOut()}>SIGN OUT</OptionLink>
+
+// and in this way, the following block don't need to be written: 
+
+const OptionContainerStyles = css`
+  padding: 10px 15px;
+  cursor: pointer;
+`
+```
+
+
+<hr />
+
+
+# styled-components In Our App 3 (CustomButton)
+
+-
+
+```
+// original code
+const CustomButton = ({ children, isGoogleSignIn, inverted, ...otherProps }) => (
+  <button className={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`} {...otherProps}>
+    {children}
+  </button>
+);
+```

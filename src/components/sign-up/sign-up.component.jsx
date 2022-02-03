@@ -49,7 +49,7 @@ class SignUp extends Component {
     return (
       <div className='sign-up'>
         <h2 className='title'>I do not have an account</h2>
-        <span>Sign up with your email and password</span>
+        <span>Create your account today. </span>
 
         <form onSubmit={this.handleSubmit}>
           <FormInput name='displayName' type='text' value={displayName} handleChange={this.handleChange} label='Name' required />

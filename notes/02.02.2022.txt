@@ -4,7 +4,7 @@
 __: Highlight
 
 
-# styled-components In Our App 2
+# styled-components In Our App 2 (Header)
 
 - An even more easier way to write is using the 'as' attribute; 
 
@@ -17,4 +17,21 @@ const OptionContainerStyles = css`
   padding: 10px 15px;
   cursor: pointer;
 `
+```
+
+
+<hr />
+
+
+# styled-components In Our App 3 (CustomButton)
+
+-
+
+```
+// original code
+const CustomButton = ({ children, isGoogleSignIn, inverted, ...otherProps }) => (
+  <button className={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`} {...otherProps}>
+    {children}
+  </button>
+);
 ```

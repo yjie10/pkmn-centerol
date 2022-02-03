@@ -15,7 +15,7 @@
     margin-bottom: 5px;
   }
 
-  .custom-button {
+  & button {
     width: 80%;
     opacity: 0.7;
     position: absolute;
@@ -24,13 +24,13 @@
   }
 
   &:hover {
-    background-color: rgb(245, 245, 245);
+    background-color: #f5f5f5;
 
     .image {
       opacity: 0.8;
     }
 
-    .custom-button {
+    button {
       display: flex;
       opacity: 0.85;
     }

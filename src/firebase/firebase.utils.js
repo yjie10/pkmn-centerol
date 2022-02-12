@@ -50,9 +50,9 @@ export const convertCollctionsSnapshotToMap = (collections) => {
     }
   }
   )
-  // console.log(transformedCollection);
+  console.log(transformedCollection);
   return transformedCollection.reduce((accumulator, collection) => {
-    accumulator[collection.title.toLowerCase()] = collection;
+    accumulator[collection.title.replace(/\s/g, '').toLowerCase()] = collection;
     return accumulator;
   }, {})
 };

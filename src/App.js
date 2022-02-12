@@ -4,16 +4,20 @@ import { connect } from 'react-redux';
 
 import './App.css';
 
+// components - pages
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shoppage/shoppage.component';
 import SignInSignUpPage from './pages/signin-signup-page/signin-signup-page.component';
 import CheckoutPage from './pages/checkoutpage/checkoutpage.component';
 
+// components
 import Header from './components/header/header.component';
 
+// redux / selectors
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
+// firebase
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 

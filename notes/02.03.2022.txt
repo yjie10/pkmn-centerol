@@ -1,0 +1,14 @@
+// notes for self-use 01.25.22
+**: Referring to Components
+++: Referring to some key terms
+__: Highlight
+
+/* 
+  Lectures Covered:
+  Section Overview
+*/
+
+
+- Advanced Redux: Handle Asynchrounous Actions;
+- Firebase: Right now, we are using Firebase Auth to handle and store user; 
+            We can also use it to store the collections (which is currently stored on the frontend);

@@ -1,3 +1,0 @@
-// general important things to keep in mind as a React Developer
-- we want to keep the state to the lowest possible level, keeping the concern in place to
-  whatever component needs it so we are more efficient with our code
